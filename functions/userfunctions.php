@@ -8,7 +8,7 @@ switch ($_REQUEST['action']) {
     case 'checkLog':
             if (isset($_SESSION['username'])) {
                 echo 1;
-                exit;
+               // exit;
             }else{
                 echo 0;
             }

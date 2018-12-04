@@ -16,7 +16,7 @@
         <li id="" data-location="Home" class="navigation w3-button w3-hover-grey w3-black">Home</li>
         <li id="" data-location="Profile" class="navigation w3-button w3-hover-grey w3-black">Profile</li>
         <li id="" data-location="Friends" class="navigation w3-button w3-hover-grey w3-black">Friends</li>
-        <li id="" data-location="login_div" class="navigation w3-button w3-hover-grey w3-black">Login</li>
+        <li id="login" data-location="login_div" class="navigation w3-button w3-hover-grey w3-black">Login</li>
         <li id="" data-location="Matcha" class="navigation w3-button w3-hover-grey w3-black">MATCHA</li>
     </ul>
 </div>
