@@ -1,8 +1,9 @@
 $(document).ready(function(){
     location.hash = "Home";
 navigation();
-$(".navigation").addClass("w3-black");
-//locListen("Home");
+$(".navigation").addClass("w3-animate-opacity");
+
+checkLogin();
 });
 
 
@@ -10,10 +11,6 @@ $(".navigation").addClass("w3-black");
 function navigation(){
 
 $(".navigation").click(function () {
-    //this.addClass("w3-blue");
-   // $(".navigation").removeClass("w3-red");
-  //  $(".navigation").addClass("w3-black");
-    //alert(this.getAttribute("data-location"));
     var val = this.getAttribute("data-location");
     $("#"+val).animate({height: '300px', opacity: '0.4'}, "slow");
     location.hash = val;
@@ -21,10 +18,19 @@ $(".navigation").click(function () {
 
     $("#content_wrapper").load("content/forms.php #"+val, function() {
        // alert( "Load was performed.");
-        //locListen(val);
        // this.animate({opacity: "0.2"});
       });
-     // $(".navigation").animate({opacity: "1"});
+
 });
 
+}
+
+function checkLogin(){
+    $.post('functions/userfunctions.php?action=checkLog', function (response) {
+        if (response == 1) {
+            alert("responsewetwe");
+        }else{
+            alert("Not Logged In BIYAAATCH");
+        }
+    });
 }

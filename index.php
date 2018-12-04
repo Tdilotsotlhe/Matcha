@@ -10,17 +10,20 @@
     <script src="js/test.js"></script>
 </head>
 <body>
-    <h1>MATCHA</h1>
+    <div class="w3-container w3-mobile w3-header w3-teal">
+    <h1 class="w3-center">MATCHA</h1>
     <ul>
-        <li id="" data-location="Home" class="navigation w3-button w3-hover-grey w3-red">Home</li>
-        <li id="" data-location="Profile" class="navigation w3-button w3-hover-grey w3-red">Profile</li>
-        <li id="" data-location="Friends" class="navigation w3-button w3-hover-grey w3-red">Friends</li>
-        <li id="" data-location="login_div" class="navigation w3-button w3-hover-grey w3-red">Login</li>
-        <li id="" data-location="Matcha" class="navigation w3-button w3-hover-grey w3-red">MATCHA</li>
+        <li id="" data-location="Home" class="navigation w3-button w3-hover-grey w3-black">Home</li>
+        <li id="" data-location="Profile" class="navigation w3-button w3-hover-grey w3-black">Profile</li>
+        <li id="" data-location="Friends" class="navigation w3-button w3-hover-grey w3-black">Friends</li>
+        <li id="" data-location="login_div" class="navigation w3-button w3-hover-grey w3-black">Login</li>
+        <li id="" data-location="Matcha" class="navigation w3-button w3-hover-grey w3-black">MATCHA</li>
     </ul>
+</div>
+    <!-- contentwrapper open -->
     <div id="content_wrapper">
-    
-
-    </div><!-- contentwrapper close -->
+.....
+    </div>
+    <!-- contentwrapper close -->
 </body>
 </html>
