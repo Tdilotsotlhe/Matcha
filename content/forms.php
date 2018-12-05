@@ -9,11 +9,22 @@
 
 <!-- registration form -->
 <div id="reg_div" class="w3-container w3-animate-left">
-<form id="login">
-<input id="username" class="w3-input">
-<input id="password" class="w3-input">
-<button id="loginBtn" class="w3-btn w3-hover-grey">Login<button>
+<form id="reg_form">
+<label>username</label>
+<input type="text"  id="username" class="w3-input" required>
+<label>Name</label>
+<input type="text"  id="name" class="w3-input" required>
+<label>Surname</label>
+<input type="text"  id="surname" class="w3-input" required>
+<label>Password</label>
+<input  type="text" id="password" class="w3-input" required>
+<label>Verify Password</label>
+<input type="text"  id="password2" class="w3-input" required>
+<label>Email</label>
+<input type="text"  id="password2" class="w3-input" required>
+<input id="regBtn" type="submit" class="w3-btn w3-hover-grey" value="Register"><!-- Register<button> -->
 </form>
+
 </div>
 
 <!-- upload image form -->
@@ -55,7 +66,7 @@
   </div>
 
   <!-- login/registration -->
-<div id="loginreg" class="w3-container w3-red">
+<!-- <div id="loginreg" class="w3-container w3-red">
 <div id="login_div" class="w3-container w3-animate-left">
 <form id="login_form">
 <input id="username" placeholder="username" class="w3-input">
@@ -71,4 +82,4 @@
 <button id="loginBtn" class="w3-btn w3-hover-grey">Login<button>
 </form>
 </div>
-</div>
+</div> -->
