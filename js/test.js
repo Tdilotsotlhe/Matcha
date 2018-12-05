@@ -18,18 +18,15 @@ function navigation(){
 
 $(".navigation").click(function () {
     var val = this.getAttribute("data-location");
-    //$("#"+val).animate({height: '300px', opacity: '0.4'}, "slow");
+
     alert(val);
-    //$("#"+val).addClass("w3-blue");
+
 
     location.hash = val;
     $("#content_wrapper").load("content/forms.php #"+val, function() {
         $.getScript("js/"+val+"-script.js", function() {
-            alert("Script loaded and executed.");
-            //this works but if cant control it(remove clean), then append tags insteda
+            alert("Script loaded and executed.");    
           });
-        // alert( "Load was performed.");
-       // this.animate({opacity: "0.2"});
       });
  
 

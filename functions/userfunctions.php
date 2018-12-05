@@ -13,9 +13,21 @@ switch ($_REQUEST['action']) {
                 echo 0;
             }
         break;
+
+    case 'newUser':
+        if (isset($_REQUEST['username'])) {
+           reguser();
+        }else{
+            echo 0;
+        }
+    break;
+        
     }
-
-
+    
+function reguser()
+{
+    
+}
 
 
 
