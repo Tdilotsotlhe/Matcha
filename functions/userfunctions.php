@@ -26,7 +26,13 @@ switch ($_REQUEST['action']) {
     
 function reguser()
 {
-    
+    var_dump($_REQUEST);
+    echo $_REQUEST['username'];
+    echo $_REQUEST['name'];
+    echo $_REQUEST['surname'];
+    echo $_REQUEST['pass1'];
+    echo $_REQUEST['pass2'];
+    echo $_REQUEST['email'];
 }
 
 
