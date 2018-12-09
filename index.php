@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/w3.css" />
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/test.js"></script>
+    <script id ="DynamicScript" src="js/dummy.js"></script>
     <style>
 
     </style>

@@ -11,8 +11,12 @@ $(document).ready(function(){
 });
 
  function newMember(varstring) {
+     console.log("testnewmember fucn");
     console.log(varstring);
     $.post('functions/userfunctions.php?action=newUser&' + varstring, function (response) {
        alert(response);
+       if(response == 1){
+           
+       }
     });
 } 

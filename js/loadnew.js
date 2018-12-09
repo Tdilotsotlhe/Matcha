@@ -1,0 +1,1 @@
+alert("We loaded a new script nigger");

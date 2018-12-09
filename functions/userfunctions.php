@@ -26,14 +26,6 @@ switch ($_REQUEST['action']) {
     
 function reguser()
 {
-/*     var_dump($_REQUEST);
-    echo $_REQUEST['username'];
-    echo $_REQUEST['name'];
-    echo $_REQUEST['surname'];
-    echo $_REQUEST['pass1'];
-    echo $_REQUEST['pass2'];
-    echo $_REQUEST['email']; */
-
 
 
 include "../config/database.php";
@@ -69,7 +61,7 @@ die();
   try { 
       $newprofile = json_encode("empty prilfe : empty");
 
-    $sql = "INSERT INTO users (username, passw, email, acthash, `name`, `surname`, `profile`) VALUES (:username, :passw, :email, :acthash, :nme, :snme, :pfile)";
+    $sql = "INSERT INTO users (username, passw, email, acthash, `first_name`, `last_name`, `profile`) VALUES (:username, :passw, :email, :acthash, :nme, :snme, :pfile)";
     $stmt= $dbh->prepare($sql);
     $stmt->bindParam(':username', $user);
     $stmt->bindParam(':passw', $pass);

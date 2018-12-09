@@ -1,7 +1,11 @@
 $(document).ready(function(){
     location.hash = "Home";
+    console.log($("#DynamicScript").attr('src'));
+    //$("#DynamicScript").attr('src', "js/loadnew.js"); 
+    //console.log($("#DynamicScript").attr('src'));
 navigation();
 $(".navigation").addClass("w3-animate-opacity");
+
 
 checkLogin(); 
 setInterval(function () {
@@ -24,9 +28,12 @@ $(".navigation").click(function () {
 
     location.hash = val;
     $("#content_wrapper").load("content/forms.php #"+val, function() {
-        $.getScript("js/"+val+"-script.js", function() {
+       /*  $.getScript("js/"+val+"-script.js", function() {
             alert("Script loaded and executed.");    
-          });
+          }); */
+
+        $("#DynamicScript").attr('src', "js/"+val+".js");
+        console.log($("#DynamicScript").attr('src'));
       });
  
 
