@@ -21,6 +21,14 @@ switch ($_REQUEST['action']) {
             echo 0;
         }
     break;
+
+    case 'Login':
+      /*   if (isset($_REQUEST['username'])) { */
+           Login();
+      /*   }else{ */
+      /*       echo 0; */
+      /*   } */
+    break;
         
     }
     
@@ -133,6 +141,79 @@ else{
 
 
 }
+
+
+
+
+//////throw scripts into seperate sections
+
+function Login(){
+/*     var_dump($_REQUEST);
+    echo "fokol"; */
+
+
+    require_once "../config/database.php";
+
+
+    $user = $_REQUEST['username'];
+    $pwrd = $_REQUEST['password']; 
+    
+    function setlogin($row)
+    {
+      $_SESSION['uid'] = $row['user_id'];
+      $_SESSION['username'] = $row['username'];
+     // $_SESSION['emailnotif'] = $row["notification"];
+    }
+    
+    try {
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASS);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      } catch (PDOException $e) {
+      print "Error!: " . $e->getMessage() . "<br/>";
+      die();
+      }
+      
+       try {
+        $dbh->query("USE ".$DB_NAME);
+      } catch (Exception $e) {
+         die("db creation failed!");
+      } 
+      
+        try { 
+          $stmt = $dbh->prepare("SELECT * FROM users WHERE username=?");
+          if($stmt->execute([$user])){
+            
+            if($row = $stmt->fetch()){ 
+            //  var_dump(simplexml_load_string($unser));
+            
+           
+                 if (strcmp($row['username'], $user) == 0 && $row && $pwrd == $row['passw'])
+                {
+                
+                    setlogin($row);
+                   // echo "Welcome ".$row['username']; 
+                   echo "1";
+                  } 
+                else if (strcmp($row['username'], $user) != 0)
+                {
+                  echo "Login failed"; 
+                }else{
+                  echo "Login failed"; 
+                }
+            }else{
+              echo "No results";
+            }
+          }
+       } catch (PDOException $e) {
+      print "Error!: " . $e->getMessage() . "<br/>";
+      die();
+      }
+    
+
+
+
+}
+
 
 
 

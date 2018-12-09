@@ -1,6 +1,6 @@
 <!-- login form -->
 <div id="login_div" class="w3-container w3-animate-left">
-<form id="login_form">
+<form id="login_form" onsubmit="alert('submit!');return false">
 <input id="username" placeholder="username" class="w3-input">
 <input id="password" placeholder="password" class="w3-input">
 <button id="loginBtn" class="w3-btn w3-hover-grey">Login<button>
@@ -9,7 +9,7 @@
 
 <!-- registration form -->
 <div id="reg_div" class="w3-container w3-animate-left">
-<form id="reg_form">
+<div id="reg_form" >
 <label>username</label>
 <input id="username" name="username" type="text"   class="w3-input" required>
 <label>Name</label>
@@ -22,8 +22,8 @@
 <input id="pass2" name="pass2" type="text"  class="w3-input" required>
 <label>Email</label>
 <input type="text"  id="email" name="email" class="w3-input" required>
-<input id="regBtn" type="submit" class="w3-btn w3-hover-grey" value="Register"><!-- Register<button> -->
-</form>
+<button id="regBtn"  class="w3-btn w3-hover-grey" >Register</button><!-- Register<button> -->
+</div>
 
 </div>
 

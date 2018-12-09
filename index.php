@@ -13,22 +13,241 @@
 
     </style>
 </head>
-<body>
+<body  class='w3-light-grey'>
     <div class="w3-container w3-mobile w3-header">
     <h1 class="w3-center">MATCHA</h1>
     <ul class="w3-center ">
-        <li id="" data-location="Home" class="navigation w3-button w3-hover-grey w3-black">Home</li>
-        <li id="" data-location="Profile" class="navigation w3-button w3-hover-grey w3-black">Profile</li>
-        <li id="" data-location="Friends" class="navigation w3-button w3-hover-grey w3-black">Friends</li>
-        <li id="login" data-location="login_div" class="navigation w3-button w3-hover-grey w3-black">Login</li>
-        <li id="register" data-location="reg_div" class="navigation w3-button w3-hover-grey w3-black">Register</li>
-        <li id="" data-location="Matcha" class="navigation w3-button w3-hover-grey w3-black">MATCHA</li>
+        <li id="" data-location="Dashboard" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Home</li>
+        <li id="" data-location="Profile" class="newnav w3-button w3-hover-grey w3-black">Profile</li>
+        <li id="" data-location="Friends" class="newnav w3-button w3-hover-grey w3-black">Friends</li>
+        <li id="login" data-location="login_div" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Login</li>
+        <li id="register" data-location="reg_div" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Register</li>
+        <li id="" data-location="Matcha" class="newnav w3-button w3-hover-grey w3-black">MATCHA</li>
     </ul>
 </div>
     <!-- contentwrapper open -->
     <div id="content_wrapper">
-....zvcv.
+        <!-- New Approach -->
+
+        
+
+<!-- Login Div -->
+
+<div id="login_div" class="DynamicDivs w3-container w3-animate-left" style="display: none;">
+<form id="log_form" class="loginform"  onsubmit="return false">
+<input id="username" placeholder="username" class="w3-input">
+<input id="password" placeholder="password" class="w3-input">
+<button id="loginBtn"  class="w3-btn w3-hover-grey">Login<button>
+</form>
+</div> 
+
+<!-- Login Div -->
+
+
+<!-- Reg Div -->
+
+<div id="reg_div" class="DynamicDivs w3-container w3-animate-left" style="display: none;">
+<form id="reg_form" onsubmit="return false">
+<label>username</label>
+<input id="regusername" name="username" type="text"   class="w3-input w3-clear" required>
+<label>Name</label>
+<input id="name" name="name" type="text"   class="w3-input w3-clear" required>
+<label>Surname</label>
+<input id="surname" name="surname" type="text"  class="w3-input w3-clear" required>
+<label>Password</label>
+<input id="pass1" name="pass1"  type="text"  class="w3-input w3-clear" required>
+<label>Verify Password</label>
+<input id="pass2" name="pass2" type="text"  class="w3-input w3-clear" required>
+<label>Email</label>
+<input type="text"  id="email" name="email" class="w3-input w3-clear" required>
+<button id="regBtn"  class="w3-btn w3-hover-grey" >Register</button><!-- Register<button> -->
+</form>
+</div>
+
+<!-- Reg Div -->
+
+
+
+
+<!-- Dashboard Div -->
+<div id="Dashboard" class="DynamicDivs w3-animate-zoom" style="display: none;">
+
+<div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-quarter">
+      <div class="w3-container w3-red w3-padding-16">
+        <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>52</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Messages</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-blue w3-padding-16">
+        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>99</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Views</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-teal w3-padding-16">
+        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>23</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Shares</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-orange w3-text-white w3-padding-16">
+        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>50</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Users</h4>
+      </div>
+    </div>
+  </div>
+  <div class="w3-panel">
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-third">
+        <h5>Regions</h5>
+        <img src="/w3images/region.jpg" style="width:100%" alt="Google Regional Map">
+      </div>
+      <div class="w3-twothird">
+        <h5>Feeds</h5>
+        <table class="w3-table w3-striped w3-white">
+          <tbody><tr>
+            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
+            <td>New record, over 90 views.</td>
+            <td><i>10 mins</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
+            <td>Database error.</td>
+            <td><i>15 mins</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+            <td>New record, over 40 users.</td>
+            <td><i>17 mins</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
+            <td>New comments.</td>
+            <td><i>25 mins</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
+            <td>Check transactions.</td>
+            <td><i>28 mins</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+            <td>CPU overload.</td>
+            <td><i>35 mins</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+            <td>New shares.</td>
+            <td><i>39 mins</i></td>
+          </tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="w3-container">
+    <h5>Recent Users</h5>
+    <ul class="w3-ul w3-card-4 w3-white">
+      <li class="w3-padding-16">
+        <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+        <span class="w3-xlarge">Mike</span><br>
+      </li>
+      <li class="w3-padding-16">
+        <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+        <span class="w3-xlarge">Jill</span><br>
+      </li>
+      <li class="w3-padding-16">
+        <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+        <span class="w3-xlarge">Jane</span><br>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<!-- Dashboard Div -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
     <!-- contentwrapper close -->
+
+
+      <footer class="w3-container w3-padding-16 w3-clear">
+    <h4 class=" w3-clear  w3-center w3-animate-bottom">MATCHA</h4>
+  </footer>
 </body>
+
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+        overlayBg.style.display = "none";
+    } else {
+        mySidebar.style.display = 'block';
+        overlayBg.style.display = "block";
+    }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+    overlayBg.style.display = "none";
+}
+</script>
+
 </html>
