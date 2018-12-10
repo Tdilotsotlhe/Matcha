@@ -23,6 +23,16 @@ switch ($_REQUEST['action']) {
     break;
 
     case 'Login':
+
+    case 'emptyProfile':
+        if (checkProf() == "1") {
+           echo 1;
+        }else{
+            echo 0;
+        }
+    break;
+
+    case 'Login':
       /*   if (isset($_REQUEST['username'])) { */
            Login();
       /*   }else{ */
@@ -214,6 +224,60 @@ function Login(){
 
 }
 
+
+
+
+function checkProf(){
+  include "../config/database.php";
+
+    if(isset($_SESSION['uid'])){
+
+    
+
+    try {
+      $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASS);
+      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // echo "yes";
+    } catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+    }
+
+    //select DB
+    try {
+      $dbh->query("USE ".$DB_NAME);
+    } catch (Exception $e) {
+      die("db creation failed!");
+    } 
+
+
+
+
+    try { 
+    
+
+    $sql = "SELECT * FROM users WHERE user_id = :id";
+    
+    $stmt= $dbh->prepare($sql);
+    $stmt->bindParam(':id', $_SESSION['uid']);
+    if($row = $stmt->execute()){
+    //sendVerify($email, $acthash);
+    echo $row['profile'];
+    }else{
+      echo "shit";
+    }
+
+    } catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+    }  
+  }else{
+    echo 0;
+    exit();
+  }
+
+
+}
 
 
 

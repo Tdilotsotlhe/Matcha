@@ -4,7 +4,7 @@ $(document).ready(function(){
     location.hash = "Register";
     $("#regBtn").on("click", function (event) {
         alert("work");
-        var vars = $('#reg_form').serialize();
+       
       //  event.preventDefault();
         /* var vars = $("input").each(function() {
             alert($(this).val());

@@ -17,10 +17,11 @@
     <div class="w3-container w3-mobile w3-header">
     <h1 class="w3-center">MATCHA</h1>
     <ul class="w3-center ">
-        <li id="" data-location="Dashboard" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Home</li>
+        <li id="Dashb" data-location="Dashboard" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Home</li>
         <li id="" data-location="Profile" class="newnav w3-button w3-hover-grey w3-black">Profile</li>
         <li id="" data-location="Friends" class="newnav w3-button w3-hover-grey w3-black">Friends</li>
         <li id="login" data-location="login_div" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Login</li>
+        <li id="logout" data-location="logout" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Logout</li>
         <li id="register" data-location="reg_div" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Register</li>
         <li id="" data-location="Matcha" class="newnav w3-button w3-hover-grey w3-black">MATCHA</li>
     </ul>
@@ -118,7 +119,12 @@
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
         <h5>Regions</h5>
-        <img src="/w3images/region.jpg" style="width:100%" alt="Google Regional Map">
+        <div class="w3-card-4">
+  <img src="images/water.jpg" alt="Norway" height="100px"; width="100px";>
+  <div class="w3-container w3-center">
+    <p>The Italian / Austrian Alps</p>
+  </div>
+</div>
       </div>
       <div class="w3-twothird">
         <h5>Feeds</h5>

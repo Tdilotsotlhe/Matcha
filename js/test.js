@@ -10,7 +10,7 @@ $(".navigation").addClass("w3-animate-opacity");
 checkLogin(); 
 setInterval(function () {
 checkLogin(); 
- }, 1000);
+ }, 500);
 });
 
 
@@ -49,13 +49,21 @@ $(".navigation").click(function () {
 //new nav function
 function newnav(location){
     //hide divs
-    
-$(".DynamicDivs").hide();
+    profileKick();
+    $(".DynamicDivs").hide();
+
+    if(location == "Dashboard"){
+        alert("tsek");
+        $('#'+location).show();
+        return ;
+    }
+
 
     console.log(location);
     if (location.getAttribute("data-location") == "logout"){
         alert("logging out");
         logout();
+       // return false();
     }
     $('#'+location.getAttribute("data-location")).show();
     
@@ -108,17 +116,21 @@ function checkLogin(){
     
     $.post('functions/userfunctions.php?action=checkLog', function (response) {
         if (response == "1") {
+         
             x = 1;
             //return true;
            // alert(response);
-            $("#login").html("Logout");
-            $("#login").attr("data-location", "logout");
+            /* $("#login").html("Logout");
+            $("#login").attr("data-location", "logout"); */
+            $("#login").hide("slow");
+            $("#logout").show("slow");
             $("#register").hide("slow");
         }else{
             //make sepoerate logout button
             $("#register").show("slow");
-            $("#login").html("Login");
-            $("#login").attr("data-location", "login_div");
+            $("#login").show("slow");
+            $("#logout").hide("slow");
+            //$("#login").attr("data-location", "login_div");
             x = 0;
           //  location.replace("index.php#locked");
             //return false;
@@ -178,10 +190,26 @@ function login_ajax() {
    // console.log("testnewmember fucn");
   // console.log(varstring);
    $.post('functions/userfunctions.php?action=Login&username=' + u + "&password=" + p, function (response) {
-      alert(response);
+      alert(response + "dashboard navigaiton");
      // alert("newlogin");
       if(response == 1){
           newnav("Dashboard");
       }
    });
+}
+
+
+function profileKick(){
+    alert("profile Kick");
+    $.post('functions/userfunctions.php?action=emptyProfile', function (response) {
+        console.log(response);
+        alert(response);
+        if (response == "1") {
+            //hide all divs
+
+            //load profile div
+        }else{
+           //do nothing
+        }
+    });
 }
