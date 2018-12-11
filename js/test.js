@@ -14,6 +14,24 @@ checkLogin();
 });
 
 
+function allAjax(sendTo, method, values, AsyncOrSync, action){
+
+    request = "";
+    request = $.ajax({
+        type: method,
+        url: sendTo,
+        data: "action="+action+"&"+values,
+        async: AsyncOrSync
+        /* dataType: "dataType", */
+     /*    success: function (response) {
+            return response;
+        } */
+    });
+    return request;
+
+}
+
+
 
 
 
@@ -24,16 +42,16 @@ $(".navigation").click(function () {
     var val = this.getAttribute("data-location");
 
     alert(val);
-
+/*     var curScriptElement = document.currentScript;
+    alert(curScriptElement); */
 
     location.hash = val;
     $("#content_wrapper").load("content/forms.php #"+val, function() {
-       /*  $.getScript("js/"+val+"-script.js", function() {
+         $.getScript("js/"+val+"-script.js", function() {
             alert("Script loaded and executed.");    
-          }); */
+          }); 
 
-        $("#DynamicScript").attr('src', "js/"+val+".js");
-        console.log($("#DynamicScript").attr('src'));
+
       });
  
 
@@ -42,24 +60,35 @@ $(".navigation").click(function () {
 }
 
 
-
+function ScriptManage(scriptname, action){
+    if(action == "remove"){
+        $("script[src ='js/"+scriptname+"']").remove;
+    }
+    if(action == "add"){
+        $.getScript("js/"+scriptname+".js");
+    }
+}
 
 
 
 //new nav function
 function newnav(location){
-    //hide divs
-    profileKick();
+
+/*     var navItem = location.getAttribute("data-location"); */
+navItem = window.location.hash;
+navItem = navItem.replace("#","");
+
     $(".DynamicDivs").hide();
 
+    alert("currentscript:" + window.location.hash);
+    
     if(location == "Dashboard"){
         alert("tsek");
         $('#'+location).show();
+        window.location.hash = location;
         return ;
     }
-
-
-    console.log(location);
+ //   console.log(location);
     if (location.getAttribute("data-location") == "logout"){
         alert("logging out");
         logout();
@@ -69,9 +98,13 @@ function newnav(location){
     
 
     if($('#'+location.getAttribute("data-location")).length){
-        alert("Div1 exists");
+      //  alert("Div1 exists");
+      //load JS
+      ScriptManage(navItem, "remove");
+      ScriptManage(location.getAttribute("data-location"), "add");
+
         //attach event listeners
-        attachEvents(location.getAttribute("data-location"));
+      //  attachEvents(location.getAttribute("data-location"));
     }else{
         alert("Div1 does not exists");
     } 
@@ -79,11 +112,11 @@ function newnav(location){
 
     }
 
-function attachEvents(loc){
+/* function attachEvents(loc){
     switch (loc) {
         case "login_div":
         $("#loginBtn").on("click", function (event) {
-            alert("work");
+            //alert("work");
             //var logvars = $('.loginform').serialize();
             user = ($('#username').val());
             pass = ($('#password').val());
@@ -107,8 +140,8 @@ function attachEvents(loc){
     /* $('#loginBtn').click(function (e) { 
         e.preventDefault();
         alert("logingngnng");
-    }); */
-}
+    }); 
+} */
 
 
 
@@ -118,24 +151,14 @@ function checkLogin(){
         if (response == "1") {
          
             x = 1;
-            //return true;
-           // alert(response);
-            /* $("#login").html("Logout");
-            $("#login").attr("data-location", "logout"); */
             $("#login").hide("slow");
             $("#logout").show("slow");
             $("#register").hide("slow");
         }else{
-            //make sepoerate logout button
             $("#register").show("slow");
             $("#login").show("slow");
             $("#logout").hide("slow");
-            //$("#login").attr("data-location", "login_div");
             x = 0;
-          //  location.replace("index.php#locked");
-            //return false;
-           // alert(response);
-            //alert("Not Logged In BIYAAATCH");
         }
     });
 }
@@ -170,7 +193,7 @@ function login_ajax() {
    $.post('functions/userfunctions.php?action=newUser&' + varstring, function (response) {
       
       if(response == 1){
-          newnav("login_div");
+          ("login_div");
       /*  $("#content_wrapper").load("content/forms.php #login_div", function() {
              $.getScript("js/"+val+"-script.js", function() {
                 alert("Script loaded and executed.");    
@@ -185,25 +208,29 @@ function login_ajax() {
 }
 
 
-
+/* 
  function newLogin(u, p) {
    // console.log("testnewmember fucn");
-  // console.log(varstring);
-   $.post('functions/userfunctions.php?action=Login&username=' + u + "&password=" + p, function (response) {
-      alert(response + "dashboard navigaiton");
+   console.log(u);
+  console.log(p); 
+  vars = "username="+u+"&password="+p;
+   $.post('functions/userfunctions.php?action=Login&'+vars, function (response) {
+      
      // alert("newlogin");
-      if(response == 1){
-          newnav("Dashboard");
+      if(response == '1'){
+        console.log(response + " sdgdgthe response");
+         alert("ok");
+         // newnav();
       }
-   });
-}
+   }); 
+} */
 
 
 function profileKick(){
     alert("profile Kick");
     $.post('functions/userfunctions.php?action=emptyProfile', function (response) {
-        console.log(response);
-        alert(response);
+        //console.log(response);
+       // alert(response);
         if (response == "1") {
             //hide all divs
 

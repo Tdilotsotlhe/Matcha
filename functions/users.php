@@ -5,14 +5,6 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 switch ($_REQUEST['action']) {
-    case 'checkLog':
-            if (isset($_SESSION['username'])) {
-                echo 1;
-               // exit;
-            }else{
-                echo 0;
-            }
-        break;
 
     case 'newUser':
         if (isset($_REQUEST['username'])) {
@@ -21,6 +13,8 @@ switch ($_REQUEST['action']) {
             echo 0;
         }
     break;
+
+
 
     case 'emptyProfile':
         if (checkProf() == "1") {
@@ -75,11 +69,11 @@ die();
 } 
 
   try { 
+
     $test = array();
     $test['Profiletype'] = "NewProfile";
     $test['friends'] = "none";
-      $newprofile = json_encode($test);
-    //  $newprofile = json_encode("empty prilfe : empty");
+    $newprofile = json_encode($newprofile);
 
     $sql = "INSERT INTO users (username, passw, email, acthash, `first_name`, `last_name`, `profile`) VALUES (:username, :passw, :email, :acthash, :nme, :snme, :pfile)";
     $stmt= $dbh->prepare($sql);
@@ -177,9 +171,9 @@ function Login(){
     $user = $_REQUEST['username'];
     $pwrd = $_REQUEST['password']; 
     
- /*    echo $user;
+    echo $user;
     echo $pwrd;
-    exit(); */
+    exit();
     
     try {
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASS);

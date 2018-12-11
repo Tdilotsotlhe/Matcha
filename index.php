@@ -18,12 +18,12 @@
     <h1 class="w3-center">MATCHA</h1>
     <ul class="w3-center ">
         <li id="Dashb" data-location="Dashboard" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Home</li>
-        <li id="" data-location="Profile" class="newnav w3-button w3-hover-grey w3-black">Profile</li>
-        <li id="" data-location="Friends" class="newnav w3-button w3-hover-grey w3-black">Friends</li>
-        <li id="login" data-location="login_div" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Login</li>
-        <li id="logout" data-location="logout" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Logout</li>
-        <li id="register" data-location="reg_div" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Register</li>
-        <li id="" data-location="Matcha" class="newnav w3-button w3-hover-grey w3-black">MATCHA</li>
+        <li id="profile" data-location="profile_div" class="newnav w3-button w3-hover-grey w3-black">Profile</li>
+        <li id="friends" data-location="friends_div" class="newnav w3-button w3-hover-grey w3-black">Friends</li>
+        <li id="login" data-location="login_div" data-script="login.js" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Login</li>
+        <li id="logout" data-location="logout" data-script="logout.js" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Logout</li>
+        <li id="register" data-location="reg_div" data-script="register.js" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Register</li>
+        <li id="Matcha" data-location="Matcha" class="newnav w3-button w3-hover-grey w3-black">MATCHA</li>
     </ul>
 </div>
     <!-- contentwrapper open -->
@@ -172,15 +172,12 @@
     <h5>Recent Users</h5>
     <ul class="w3-ul w3-card-4 w3-white">
       <li class="w3-padding-16">
-        <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
         <span class="w3-xlarge">Mike</span><br>
       </li>
       <li class="w3-padding-16">
-        <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
         <span class="w3-xlarge">Jill</span><br>
       </li>
       <li class="w3-padding-16">
-        <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
         <span class="w3-xlarge">Jane</span><br>
       </li>
     </ul>

@@ -9,6 +9,7 @@ $(document).ready(function(){
         /* var vars = $("input").each(function() {
             alert($(this).val());
         }); */
+        var vars = $('#reg_form').serialize();
         
         console.log(vars);
         newMember(vars);
