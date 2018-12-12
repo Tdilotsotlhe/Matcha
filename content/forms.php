@@ -1,6 +1,6 @@
 <!-- login form -->
 <div id="login_div" class="w3-container w3-animate-left">
-<form id="login_form" onsubmit="alert('submit!');return false">
+<form id="login_form" >
 <input id="username" placeholder="username" class="w3-input">
 <input id="password" placeholder="password" class="w3-input">
 <button id="loginBtn" class="w3-btn w3-hover-grey">Login<button>

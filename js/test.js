@@ -66,6 +66,7 @@ function ScriptManage(scriptname, action){
     }
     if(action == "add"){
         $.getScript("js/"+scriptname+".js");
+        window.location.hash = scriptname;
     }
 }
 
@@ -80,7 +81,7 @@ navItem = navItem.replace("#","");
 
     $(".DynamicDivs").hide();
 
-    alert("currentscript:" + window.location.hash);
+   // alert("currentscript:" + window.location.hash);
     
     if(location == "Dashboard"){
         alert("tsek");
@@ -100,6 +101,7 @@ navItem = navItem.replace("#","");
     if($('#'+location.getAttribute("data-location")).length){
       //  alert("Div1 exists");
       //load JS
+     // window.location.hash = location;
       ScriptManage(navItem, "remove");
       ScriptManage(location.getAttribute("data-location"), "add");
 

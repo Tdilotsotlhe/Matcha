@@ -1,0 +1,12 @@
+SELECT json_unquote(json_extract(`profile`, '$.friends')) as SELFRIENDS FROM users
+
+"Nested":"[{"movies": "1", "food": "1", "Sports": "1",}]
+
+
+//
+SELECT json_unquote(json_extract(`profile`, '$.Interests.food')) FROM users
+
+
+
+//notation and structure with nesting
+{"friends": "none", "Profiletype": "NewProfile", "Interests": {"movies": "dogs", "food": "cats", "Sports": "cow tipping"}}
