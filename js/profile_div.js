@@ -57,20 +57,23 @@ $(document).ready(function(){
     userinfo = JSON.parse(userinfo.responseText);
     loadProfile(userinfo);
     loadInterests(userinfo);
-    //console.log(userinfo.responseText);
 
-/*    $("#profileLoadBtn").click(function (e) { 
-        e.preventDefault();
-        var x = document.getElementById("demo");
-        
-        
-      }); */
-    //loadGallery();
-        
     
+  function getLocation() {
+    var x = document.getElementById("demo");
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+      } else { 
+          x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+  }
+  
+  function showPosition(position) {
+      x.innerHTML = "Latitude: " + position.coords.latitude + 
+      "<br>Longitude: " + position.coords.longitude; 
+  }
 
-
-/*     loctest(); */
+  $("#geoBTN").click(getLocation());
 
 });
 
