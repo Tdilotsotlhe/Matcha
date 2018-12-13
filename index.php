@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Matcha</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/w3.css" />
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -13,34 +13,61 @@
 
     </style>
 </head>
-<body  class='w3-light-grey'>
-    <div class="w3-container w3-mobile w3-header">
-    <h1 class="w3-center">MATCHA</h1>
-    <ul class="w3-center ">
-        <li id="Dashb" data-location="Dashboard" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Home</li>
-        <li id="profile" data-location="profile_div" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Profile</li>
-        <li id="friends" data-location="friends_div" class="newnav w3-button w3-hover-grey w3-black">Friends</li>
-        <li id="login" data-location="login_div" data-script="login.js" onclick="newnav(this);window.location.hash = 'login_div'" class="newnav w3-button w3-hover-grey w3-black">Login</li>
-        <li id="logout" data-location="logout" data-script="logout.js" onclick="newnav(this);window.location.hash = 'Logout'" class="newnav w3-button w3-hover-grey w3-black">Logout</li>
-        <li id="register" data-location="reg_div" data-script="register.js" onclick="newnav(this);window.location.hash = 'reg_div'" class="newnav w3-button w3-hover-grey w3-black">Register</li>
-        <li id="Matcha" data-location="Matcha" class="newnav w3-button w3-hover-grey w3-black">MATCHA</li>
-    </ul>
+<script>
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+<body  >
+
+
+    <div class="w3-bar-block w3-black w3-top w3-hide-small">
+        <p id="Dashb" data-location="Dashboard" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Home</p>
+        <p id="profile" data-location="profile_div" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Profile</p>
+        <p id="friends" data-location="friends_div" class="newnav w3-button w3-hover-grey w3-black">Friends</p>
+        <p id="login" data-location="login_div" data-script="login.js" onclick="newnav(this);window.location.hash = 'login_div'" class="newnav w3-button w3-hover-grey w3-black">Login</p>
+        <p id="logout" data-location="logout" data-script="logout.js" onclick="newnav(this);window.location.hash = 'Logout'" class="newnav w3-button w3-hover-grey w3-black">Logout</p>
+        <p id="register" data-location="reg_div" data-script="register.js" onclick="newnav(this);window.location.hash = 'reg_div'" class="newnav w3-button w3-hover-grey w3-black">Register</p>
+        <p id="Matcha" data-location="Matcha" class="newnav w3-button w3-hover-grey w3-black">MATCHA</p>
+    </div>
+
+
+<button onclick="myFunction('Demo1')" class="w3-button w3-block w3-black w3-left-align w3-hide-large">
+Menu</button>
+<div id="Demo1" class="w3-hide">
+<p id="Dashb2" data-location="Dashboard" onclick="newnav(this)" class="newnav w3-block w3-left-align w3-button w3-hover-grey w3-grey">Home</p>
+        <p id="profile" data-location="profile_div" onclick="newnav(this)" class="newnav w3-block w3-left-align w3-button w3-hover-grey w3-grey">Profile</p>
+        <p id="friends" data-location="friends_div" class="newnav w3-block w3-left-align w3-button w3-hover-grey w3-grey">Friends</p>
+        <p id="login" data-location="login_div" data-script="login.js" onclick="newnav(this);window.location.hash = 'login_div'" class="newnav w3-block w3-left-align w3-button w3-hover-grey w3-grey">Login</p>
+        <p id="logout" data-location="logout" data-script="logout.js" onclick="newnav(this);window.location.hash = 'Logout'" class="newnav w3-block w3-left-align w3-button w3-hover-grey w3-grey">Logout</p>
+        <p id="register" data-location="reg_div" data-script="register.js" onclick="newnav(this);window.location.hash = 'reg_div'" class="newnav w3-block w3-left-align w3-button w3-hover-grey w3-grey">Register</p>
+        <p id="Matcha" data-location="Matcha" class="newnav w3-button w3-hover-grey w3-grey w3-block w3-left-align ">MATCHA</p>
 </div>
+
+
+<br>
     <!-- contentwrapper open -->
-    <div id="content_wrapper">
+    <div id="content_wrapper" class="w3-content">
         <!-- New Approach -->
 
         
 
 <!-- Login Div -->
 
-<div id="login_div" class="DynamicDivs w3-container w3-animate-left" style="display: none;">
+<div id="login_div" class="DynamicDivs w3-padding-48 w3-cell w3-center w3-animate-left w3-padding" style="display: none;">
+
 <form id="log_form" class="loginform"  onsubmit="return false">
 <input id="username" placeholder="username" class="w3-input">
 <input id="password" placeholder="password" class="w3-input">
 <button id="loginBtn"  class="w3-btn w3-hover-grey">Login<button>
 </form>
-</div> 
+</div>
+
 
 <!-- Login Div -->
 
@@ -71,117 +98,53 @@
 
 
 <!-- Dashboard Div -->
-<div id="Dashboard" class="DynamicDivs w3-animate-zoom" style="display: none;">
+<div id="Dashboard" class="DynamicDivs  w3-animate-left w3-padding w3-content " style="display: none;">
 
-<div class="w3-row-padding w3-margin-bottom">
-    <div class="w3-quarter">
-      <div class="w3-container w3-red w3-padding-16">
-        <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3>52</h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>Messages</h4>
-      </div>
-    </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-blue w3-padding-16">
-        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3>99</h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>Views</h4>
-      </div>
-    </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-teal w3-padding-16">
-        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3>23</h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>Shares</h4>
-      </div>
-    </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-orange w3-text-white w3-padding-16">
-        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3>50</h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>Users</h4>
-      </div>
-    </div>
-  </div>
-  <div class="w3-panel">
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-third">
-        <h5>Regions</h5>
-        <div class="w3-card-4">
-  <img src="images/water.jpg" alt="Norway" height="100px"; width="100px";>
+<div class="w3-third w3-padding">
+  <div class="w3-card-4 w3-dark-grey">
+
   <div class="w3-container w3-center">
-    <p>The Italian / Austrian Alps</p>
+    <h3>Friend request</h3>
+    <img src="img_avatar3.png" alt="Avatar" style="width:80%">
+    <h5>John Doe</h5>
+
+    <button class="w3-button w3-green">Accept</button>
+    <button class="w3-button w3-red">Decline</button>
+  </div>
   </div>
 </div>
-      </div>
-      <div class="w3-twothird">
-        <h5>Feeds</h5>
-        <table class="w3-table w3-striped w3-white">
-          <tbody><tr>
-            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
-            <td>New record, over 90 views.</td>
-            <td><i>10 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
-            <td>Database error.</td>
-            <td><i>15 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>New record, over 40 users.</td>
-            <td><i>17 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
-            <td>New comments.</td>
-            <td><i>25 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
-            <td>Check transactions.</td>
-            <td><i>28 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
-            <td>CPU overload.</td>
-            <td><i>35 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
-            <td>New shares.</td>
-            <td><i>39 mins</i></td>
-          </tr>
-        </tbody></table>
-      </div>
-    </div>
+<div class="w3-third w3-padding">
+  <div class="w3-card-4 w3-dark-grey">
+
+  <div class="w3-container w3-center">
+    <h3>Friend request</h3>
+    <img src="img_avatar3.png" alt="Avatar" style="width:80%">
+    <h5>John Doe</h5>
+
+    <button class="w3-button w3-green">Accept</button>
+    <button class="w3-button w3-red">Decline</button>
   </div>
-  <div class="w3-container">
-    <h5>Recent Users</h5>
-    <ul class="w3-ul w3-card-4 w3-white">
-      <li class="w3-padding-16">
-        <span class="w3-xlarge">Mike</span><br>
-      </li>
-      <li class="w3-padding-16">
-        <span class="w3-xlarge">Jill</span><br>
-      </li>
-      <li class="w3-padding-16">
-        <span class="w3-xlarge">Jane</span><br>
-      </li>
-    </ul>
   </div>
+</div>
+<div class="w3-third w3-padding">
+  <div class="w3-card-4 w3-dark-grey">
+
+  <div class="w3-container w3-center">
+    <h3>Friend request</h3>
+    <img src="img_avatar3.png" alt="Avatar" style="width:80%">
+    <h5>John Doe</h5>
+
+    <button class="w3-button w3-green">Accept</button>
+    <button class="w3-button w3-red">Decline</button>
+  </div>
+  </div>
+</div>
+
+
+
+
+
+
 
 </div>
 
@@ -214,18 +177,18 @@
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
-<!-- <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css"> -->
-<!-- <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'> -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-<!-- <style> -->
-<!-- html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif} -->
-<!-- </style> -->
-<!-- <body class="w3-theme-l5"> -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+</style>
+
 
 
 <!-- Page Container -->
-<div id="profile_div" class="DynamicDivs w3-container w3-content w3-animate-zoom" style="max-width:1400px;margin-top:80px;display: none;">    
+<div id="profile_div" class="DynamicDivs w3-container w3-padding w3-animate-zoom" style="max-width:1400px;margin-top:80px;display: none;">    
   <!-- The Grid -->
   <div class="w3-row">
     <!-- Left Column -->
@@ -233,12 +196,12 @@
       <!-- Profile -->
       <div class="w3-card w3-round w3-white">
         <div class="w3-container">
-         <h4 class="w3-center">My Profile HERE</h4>
-         <p class="w3-center"><img src="/w3images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <h4 class="w3-center">My Profile</h4>
+         <p class="w3-center"><img src="https://api.adorable.io/avatars/166/abott@adorable.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
-         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Name</p>
-         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
-         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>
+         <p id="profileName"><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Name</p>
+         <p id="profileLocation"><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
+         <p id="profileDOB"><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>
         </div>
       </div>
       <br>
@@ -265,15 +228,7 @@
         </div>
       </div>
       <br>
-      
-      <!-- Alert Box -->
-      <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
-        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
-          <i class="fa fa-remove"></i>
-        </span>
-        <p><strong>Hey!</strong></p>
-        <p>People are looking at your profile. Find out who.</p>
-      </div>
+
     
     <!-- End Left Column -->
     </div>
@@ -285,9 +240,9 @@
         <div class="w3-col m12">
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
-              <h6 class="w3-opacity">Social Media template by w3.css</h6>
-              <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
-              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button> 
+              <h6 class="w3-opacity">Photo Gallery</h6>
+              <p id="profGallery" class="w3-border w3-padding w3-center">Status: Feeling Blue</p>
+              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>Upload</button> 
             </div>
           </div>
         </div>
@@ -311,27 +266,7 @@
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
       </div>
       
-      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <img src="/w3images/avatar5.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">16 min</span>
-        <h4>Jane Doe</h4><br>
-        <hr class="w3-clear">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-      </div>  
 
-      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <img src="/w3images/avatar6.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">32 min</span>
-        <h4>Angie Jane</h4><br>
-        <hr class="w3-clear">
-        <p>Have you seen this?</p>
-        <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-      </div> 
       
     <!-- End Middle Column -->
     </div>
@@ -366,10 +301,7 @@
       </div>
       <br>
       
-      <div class="w3-card w3-round w3-white w3-padding-16 w3-center">
-        <p>ADS</p>
-      </div>
-      <br>
+      
       
       <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
         <p><i class="fa fa-bug w3-xxlarge"></i></p>
@@ -429,8 +361,8 @@
     <!-- contentwrapper close -->
 
 
-      <footer class="w3-container w3-padding-16 w3-clear">
-    <h4 class=" w3-clear  w3-center w3-animate-bottom">MATCHA</h4>
+      <footer class="w3-container w3-padding-8 w3-black w3-bottom">
+    <h4 class=" w3-animate-opacity w3-center">MATCHA</h4>
   </footer>
 </body>
 

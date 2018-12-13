@@ -1,9 +1,11 @@
+
 $(document).ready(function(){
+    $(this).scrollTop(0);
     location.hash = "Home";
     console.log($("#DynamicScript").attr('src'));
     //$("#DynamicScript").attr('src', "js/loadnew.js"); 
     //console.log($("#DynamicScript").attr('src'));
-navigation();
+newnav(location.hash);
 $(".navigation").addClass("w3-animate-opacity");
 
 
@@ -17,17 +19,14 @@ checkLogin();
 function allAjax(sendTo, method, values, AsyncOrSync, action){
 
     request = "";
-    request = $.ajax({
+request = $.ajax({
         type: method,
         url: sendTo,
         data: "action="+action+"&"+values,
-        async: AsyncOrSync
-        /* dataType: "dataType", */
-     /*    success: function (response) {
-            return response;
-        } */
+        async: AsyncOrSync,
     });
-    return request;
+
+     return request; 
 
 }
 
@@ -84,11 +83,19 @@ navItem = navItem.replace("#","");
    // alert("currentscript:" + window.location.hash);
     
     if(location == "Dashboard"){
-        alert("tsek");
+       // alert("tsek");
+
         $('#'+location).show();
         window.location.hash = location;
         return ;
     }
+    if(location == "#Home"){
+         alert("tsek");
+ 
+         $(location).show();
+         window.location.hash = location;
+         return ;
+     }
  //   console.log(location);
     if (location.getAttribute("data-location") == "logout"){
         alert("logging out");

@@ -38,8 +38,60 @@ switch ($_REQUEST['action']) {
       /*   } */
     break;
         
+
+    case 'getProf':
+         if (isset($_REQUEST['loadProfile'])) { 
+           fetchProfile();
+        }else{ 
+            echo 0; 
+        } 
+    break;
+        
     }
     
+
+    function fetchProfile(){
+      $id = $_SESSION['uid'];
+
+      require_once "../config/database.php";
+
+      try {
+          $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASS);
+          $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        die();
+        }
+        
+         try {
+          $dbh->query("USE ".$DB_NAME);
+        } catch (Exception $e) {
+           die("db creation failed!");
+        } 
+        
+          try { 
+            $stmt = $dbh->prepare("SELECT * FROM users WHERE `user_id`=?");
+            if($stmt->execute([$id])){
+              
+              if($row = $stmt->fetch()){ 
+
+                     echo json_encode($row);
+                    // exit();
+                  }
+                  else{
+                      echo 0;
+                      exit();
+                  }
+            }
+          } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        die();
+        }
+      
+    }
+
+
+
 function reguser()
 {
 
