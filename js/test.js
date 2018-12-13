@@ -90,7 +90,7 @@ navItem = navItem.replace("#","");
         return ;
     }
     if(location == "#Home"){
-         alert("tsek");
+      //   alert("tsek");
  
          $(location).show();
          window.location.hash = location;

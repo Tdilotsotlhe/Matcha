@@ -58,14 +58,15 @@ Menu</button>
         
 
 <!-- Login Div -->
-
-<div id="login_div" class="DynamicDivs w3-padding-48 w3-cell w3-center w3-animate-left w3-padding" style="display: none;">
-
-<form id="log_form" class="loginform"  onsubmit="return false">
-<input id="username" placeholder="username" class="w3-input">
-<input id="password" placeholder="password" class="w3-input">
-<button id="loginBtn"  class="w3-btn w3-hover-grey">Login<button>
+<!-- <div id="profile_div" class="DynamicDivs w3-container w3-padding w3-animate-zoom" style="max-width:1400px;margin-top:80px;display: none;">    -->
+<div id="login_div" class="DynamicDivs  w3-container w3-padding w3-animate-left" style="max-width:1400px;margin-top:80px;display: none;">
+<div class="w3-cell">
+<form id="log_form" class="w3-container"  onsubmit="return false">
+<input id="username" placeholder="username" class="w3-input w3-border">
+<input id="password" placeholder="password" class="w3-input w3-border">
+<button id="loginBtn"  class="w3-btn w3-hover-grey">Login</button>
 </form>
+</div>
 </div>
 
 
@@ -74,7 +75,7 @@ Menu</button>
 
 <!-- Reg Div -->
 
-<div id="reg_div" class="DynamicDivs w3-container w3-animate-left" style="display: none;">
+<div id="reg_div" class="DynamicDivs w3-container w3-animate-left" style="max-width:1400px;margin-top:80px;display: none;"">
 <form id="reg_form" onsubmit="return false">
 <label>username</label>
 <input id="regusername" name="username" type="text"   class="w3-input w3-clear" required>
@@ -98,14 +99,27 @@ Menu</button>
 
 
 <!-- Dashboard Div -->
-<div id="Dashboard" class="DynamicDivs  w3-animate-left w3-padding w3-content " style="display: none;">
+<div id="Dashboard" class="DynamicDivs  w3-animate-left w3-padding w3-content " style="max-width:1400px;margin-top:80px;display: none;"">
 
 <div class="w3-third w3-padding">
   <div class="w3-card-4 w3-dark-grey">
 
   <div class="w3-container w3-center">
     <h3>Friend request</h3>
-    <img src="img_avatar3.png" alt="Avatar" style="width:80%">
+    <img src="" alt="Avatar" style="width:80%">
+    <h5>Johndfg Doe</h5>
+
+    <button class="w3-button w3-green">Accept</button>
+    <button class="w3-button w3-red">Decline</button>
+  </div>
+  </div>
+</div>
+<div class="w3-third w3-padding">
+  <div class="w3-card-4 w3-dark-grey">
+
+  <div class="w3-container w3-center">
+    <h3>Friend request</h3>
+    <img src="" alt="Avatar" style="width:80%">
     <h5>John Doe</h5>
 
     <button class="w3-button w3-green">Accept</button>
@@ -118,20 +132,7 @@ Menu</button>
 
   <div class="w3-container w3-center">
     <h3>Friend request</h3>
-    <img src="img_avatar3.png" alt="Avatar" style="width:80%">
-    <h5>John Doe</h5>
-
-    <button class="w3-button w3-green">Accept</button>
-    <button class="w3-button w3-red">Decline</button>
-  </div>
-  </div>
-</div>
-<div class="w3-third w3-padding">
-  <div class="w3-card-4 w3-dark-grey">
-
-  <div class="w3-container w3-center">
-    <h3>Friend request</h3>
-    <img src="img_avatar3.png" alt="Avatar" style="width:80%">
+    <img src="" alt="Avatar" style="width:80%">
     <h5>John Doe</h5>
 
     <button class="w3-button w3-green">Accept</button>
@@ -199,8 +200,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
          <h4 class="w3-center">My Profile</h4>
          <p class="w3-center"><img src="https://api.adorable.io/avatars/166/abott@adorable.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
-         <p id="profileName"><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Name</p>
-         <p id="profileLocation"><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
+         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i><label id="profileName"> Name</label></p>
+         <p ><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> <font id="profileLocation">London, UK</font> <p id="demo"></p></p><button id="profileLoadBtn">Try It</button>
          <p id="profileDOB"><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>
         </div>
       </div>
@@ -212,19 +213,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       <div class="w3-card w3-round w3-white w3-hide-small">
         <div class="w3-container">
           <p>Interests</p>
-          <p>
-            <span class="w3-tag w3-small w3-theme-d5">News</span>
-            <span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
-            <span class="w3-tag w3-small w3-theme-d3">Labels</span>
-            <span class="w3-tag w3-small w3-theme-d2">Games</span>
-            <span class="w3-tag w3-small w3-theme-d1">Friends</span>
-            <span class="w3-tag w3-small w3-theme">Games</span>
-            <span class="w3-tag w3-small w3-theme-l1">Friends</span>
-            <span class="w3-tag w3-small w3-theme-l2">Food</span>
-            <span class="w3-tag w3-small w3-theme-l3">Design</span>
-            <span class="w3-tag w3-small w3-theme-l4">Art</span>
-            <span class="w3-tag w3-small w3-theme-l5">Photos</span>
-          </p>
+          <div id="interests">
+
+</div>
         </div>
       </div>
       <br>
@@ -249,21 +240,27 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       </div>
       
       <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <img src="/w3images/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">1 min</span>
-        <h4>John Doe</h4><br>
+      
+        
+        <h4>Member Profiles</h4><br>
         <hr class="w3-clear">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+ 
           <div class="w3-row-padding" style="margin:0 -16px">
-            <div class="w3-half">
-              <img src="/w3images/lights.jpg" style="width:100%" alt="Northern Lights" class="w3-margin-bottom">
+            <div class="w3-quarter">
+              <img src="" style="width:100%" alt="Northern Lights" class="w3-margin-bottom">
             </div>
-            <div class="w3-half">
-              <img src="/w3images/nature.jpg" style="width:100%" alt="Nature" class="w3-margin-bottom">
+            <div class="w3-quarter">
+              <img src="" style="width:100%" alt="Nature" class="w3-margin-bottom">
+          </div>
+            <div class="w3-quarter">
+              <img src="" style="width:100%" alt="Northern Lights" class="w3-margin-bottom">
+            </div>
+            <div class="w3-quarter">
+              <img src="" style="width:100%" alt="Nature" class="w3-margin-bottom">
           </div>
         </div>
-        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+        <button type="button" class="w3-button w3-left w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> Left</button> 
+        <button type="button" class="w3-button w3-right w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i> Right</button> 
       </div>
       
 
@@ -276,7 +273,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       <div class="w3-card w3-round w3-white w3-center">
         <div class="w3-container">
           <p>Upcoming Events:</p>
-          <img src="/w3images/forest.jpg" alt="Forest" style="width:100%;">
+          <img src="" alt="Forest" style="width:100%;">
           <p><strong>Holiday</strong></p>
           <p>Friday 15:00</p>
           <p><button class="w3-button w3-block w3-theme-l4">Info</button></p>
@@ -287,7 +284,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       <div class="w3-card w3-round w3-white w3-center">
         <div class="w3-container">
           <p>Friend Request</p>
-          <img src="/w3images/avatar6.png" alt="Avatar" style="width:50%"><br>
+          <img src="" alt="Avatar" style="width:50%"><br>
           <span>Jane Doe</span>
           <div class="w3-row w3-opacity">
             <div class="w3-half">
@@ -392,4 +389,10 @@ function w3_close() {
 }
 </script>
 
+<script>
+
+</script>
+
 </html>
+
+
