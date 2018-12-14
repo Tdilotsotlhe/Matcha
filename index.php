@@ -57,8 +57,30 @@ Menu</button>
     <!-- contentwrapper open -->
     <div id="content_wrapper" class="w3-content">
         <!-- New Approach -->
-
-        
+<div class="w3-cell-row">
+        <p id="demo">Click the button to get your coordinates:</p>
+<button  onclick="getLocation()">Try It</button>
+</div>
+<script>
+//var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+	alert("it works");
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else
+  {
+  alert("Geolocation is not supported by this browser.");
+  }
+  }
+function showPosition(position)
+  {
+  alert("Latitude: " + position.coords.latitude + 
+  "<br />Longitude: " + position.coords.longitude);	
+  }
+</script>
 
 <!-- Login Div -->
 <!-- <div id="profile_div" class="DynamicDivs w3-container w3-padding w3-animate-zoom" style="max-width:1400px;margin-top:80px;display: none;">    -->
