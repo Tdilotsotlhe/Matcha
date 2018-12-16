@@ -99,6 +99,8 @@ function reguser()
 include "../config/database.php";
 
 
+
+
  $user = $_REQUEST['username'];
  $pass = $_REQUEST['pass1'];
  $pass2 = $_REQUEST['pass2'];
@@ -126,11 +128,15 @@ die();
    die("db creation failed!");
 } 
 
+
+
   try { 
     $test = array();
     $test['Profiletype'] = "NewProfile";
     $test['friends'] = "none";
-      $newprofile = json_encode($test);
+    $test['interests'] = $_REQUEST['profile'];
+    $test['gender'] = $_REQUEST['option'];
+     // $newprofile = json_encode($test);
     //  $newprofile = json_encode("empty prilfe : empty");
 
     $sql = "INSERT INTO users (username, passw, email, acthash, `first_name`, `last_name`, `profile`) VALUES (:username, :passw, :email, :acthash, :nme, :snme, :pfile)";

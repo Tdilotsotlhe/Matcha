@@ -26,10 +26,13 @@ function myFunction(id) {
 }
 
 </script>
-<body  >
+<body >
+<!-- <div class="w3-container w3-teal">
+  <h1>Header</h1>
+</div> -->
+<div class="w3-container w3-black">
 
-
-    <div class="w3-bar-block w3-black w3-top w3-hide-small">
+    <div class="w3-bar-block w3-black w3-hide-small">
         <p id="Dashb" data-location="Dashboard" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Home</p>
         <p id="profile" data-location="profile_div" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Profile</p>
         <p id="friends" data-location="friends_div" class="newnav w3-button w3-hover-grey w3-black">Friends</p>
@@ -52,35 +55,43 @@ Menu</button>
         <p id="Matcha" data-location="Matcha" class="newnav w3-button w3-hover-grey w3-grey w3-block w3-left-align ">MATCHA</p>
 </div>
 
-
+</div>
 <br>
     <!-- contentwrapper open -->
     <div id="content_wrapper" class="w3-content">
+
         <!-- New Approach -->
-<div class="w3-cell-row">
+<!-- <div class="w3-cell-row">
         <p id="demo">Click the button to get your coordinates:</p>
 <button  onclick="getLocation()">Try It</button>
-</div>
+</div>-->
 <script>
 //var x=document.getElementById("demo");
 function getLocation()
   {
+
   if (navigator.geolocation)
     {
-	alert("it works");
-    navigator.geolocation.getCurrentPosition(showPosition);
+      alert("it works");
+      navigator.geolocation.getCurrentPosition(showPosition);
+
     }
   else
   {
   alert("Geolocation is not supported by this browser.");
+  }  
   }
-  }
-function showPosition(position)
+  function showPosition(position)
   {
-  alert("Latitude: " + position.coords.latitude + 
-  "<br />Longitude: " + position.coords.longitude);	
-  }
-</script>
+    url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+position.coords.latitude+","+position.coords.longitude+"&key=AIzaSyA47t1t0JjL53u3KznXoMF_6oeVVjWTYaM";
+    $.post(url, function (response) {
+      //var jsonLoc = JSON.stringify(response.results);
+    console.log(response.results);
+    });
+/*     return position.coords.latitude + 
+    "," + position.coords.longitude; */	
+  }  
+</script> 
 
 <!-- Login Div -->
 <!-- <div id="profile_div" class="DynamicDivs w3-container w3-padding w3-animate-zoom" style="max-width:1400px;margin-top:80px;display: none;">    -->
@@ -102,6 +113,8 @@ function showPosition(position)
 
 <div id="reg_div" class="DynamicDivs w3-container w3-animate-left" style="max-width:1400px;margin-top:80px;display: none;"">
 <form id="reg_form" onsubmit="return false">
+<div class="w3-half w3-padding">
+<h1> Basic </h1>
 <label>username</label>
 <input id="regusername" name="username" type="text"   class="w3-input w3-clear" required>
 <label>Name</label>
@@ -113,9 +126,55 @@ function showPosition(position)
 <label>Verify Password</label>
 <input id="pass2" name="pass2" type="text"  class="w3-input w3-clear" required>
 <label>Email</label>
-<input type="text"  id="email" name="email" class="w3-input w3-clear" required>
-<button id="regBtn"  class="w3-btn w3-hover-grey" >Register</button><!-- Register<button> -->
+<input type="email"  id="email" name="email" class="w3-input w3-clear" required>
+</div>
+
+<div class="w3-half w3-padding w3-border-blue">
+<h1> Profile </h1>
+
+<label>Gender</label>
+<select id="gender" class="w3-select" name="option">
+  <option value="" disabled selected>Choose your Gender</option>
+  <option value="male">Male</option>
+  <option value="female">Female</option>
+  <option value="ask">ask</option>
+</select>
+
+<label>Preference</label>
+<select id="prefs" class="w3-select" name="option">
+  <option value="" disabled selected>Choose your Preference</option>
+  <option value="male">Male</option>
+  <option value="female">Female</option>
+  <option value="Bi">Both</option>
+  <option value="none">None</option>
+  <option value="PIE">&#8719;</option>
+</select>
+<hr>
+<label>Location</label>
+<p id="" name=""  type="text" onclick="getLocation()"  class="w3-input w3-red w3-hover-grey" >Access Location?</p>
+<hr>
+<label>Interests</label><br>
+<input id="sports"  name="sports" class="w3-check" type="checkbox" >
+<label>SPORTS</label>
+<input id="food" name="food"  class="w3-check" type="checkbox">
+<label>FOOD</label>
+<input id="movies"  name="movies" class="w3-check" type="checkbox" >
+<label>MOVIES</label><br>
+<input id="tv" name="tv"  class="w3-check" type="checkbox">
+<label>TV</label>
+<input id="outdoor"  name="oda" class="w3-check" type="checkbox">
+<label>OUTDOOR ACTIVITIES</label>
+<input id="indoor" name="ida"  class="w3-check" type="checkbox">
+<label>INDOOR ACTIVITIES</label><br>
+<hr>
+<button id="regBtn"  class="w3-btn w3-hover-grey w3-center w3-black" >Register</button><!-- Register<button> -->
+
+
+
+<!-- <button id="regBtn"  class="w3-btn w3-hover-grey" >Register</button>Register<button> -->
 </form>
+</div>
+
 </div>
 
 <!-- Reg Div -->
