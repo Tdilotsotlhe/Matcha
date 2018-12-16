@@ -10,10 +10,26 @@
     <script src="js/test.js"></script>
     <script id ="DynamicScript" src="js/dummy.js"></script>
     <style>
+      html { background-color: #B94FC1; } 
+body { margin:0; }
+.gradient { content: ""; height: 100%; width: 100%; position: fixed; z-index: -6; }
+.gradient.one { background-image: linear-gradient(to bottom, #5856D6 0%, #C644FC 100%);}
+.gradient.two { background-image: linear-gradient(to bottom, #C643FC 0%, #FF5F37 100%); display:none; }
 
     </style>
 </head>
 <script>
+
+
+$(function() {
+    fadeToggle( $('.gradient.one') );
+    fadeToggle( $('.gradient.two') );
+});
+
+function fadeToggle(el, hide) {
+    el.fadeToggle(5000,null,function() { fadeToggle(el); });
+}
+
 function myFunction(id) {
     var x = document.getElementById(id);
     if (x.className.indexOf("w3-show") == -1) {
@@ -27,6 +43,8 @@ function myFunction(id) {
 
 </script>
 <body >
+<div class="gradient one"></div>
+<div class="gradient two"></div>
 <!-- <div class="w3-container w3-teal">
   <h1>Header</h1>
 </div> -->
@@ -39,7 +57,8 @@ function myFunction(id) {
         <p id="login" data-location="login_div" data-script="login.js" onclick="newnav(this);window.location.hash = 'login_div'" class="newnav w3-button w3-hover-grey w3-black">Login</p>
         <p id="logout" data-location="logout" data-script="logout.js" onclick="newnav(this);window.location.hash = 'Logout'" class="newnav w3-button w3-hover-grey w3-black">Logout</p>
         <p id="register" data-location="reg_div" data-script="register.js" onclick="newnav(this);window.location.hash = 'reg_div'" class="newnav w3-button w3-hover-grey w3-black">Register</p>
-        <p id="Matcha" data-location="Matcha" class="newnav w3-button w3-hover-grey w3-black">MATCHA</p>
+        <p id="matcha" data-location="Matcha" class="newnav w3-button w3-hover-grey w3-black">MATCHA</p>
+        <p class="w3-right w3-animate-fading">MATCHA</p>
     </div>
 
 
@@ -58,7 +77,7 @@ Menu</button>
 </div>
 <br>
     <!-- contentwrapper open -->
-    <div id="content_wrapper" class="w3-content">
+    <div id="content_wrapper" class="w3-container">
 
         <!-- New Approach -->
 <!-- <div class="w3-cell-row">
@@ -67,40 +86,17 @@ Menu</button>
 </div>-->
 <script>
 //var x=document.getElementById("demo");
-function getLocation()
-  {
 
-  if (navigator.geolocation)
-    {
-      alert("it works");
-      navigator.geolocation.getCurrentPosition(showPosition);
-
-    }
-  else
-  {
-  alert("Geolocation is not supported by this browser.");
-  }  
-  }
-  function showPosition(position)
-  {
-    url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+position.coords.latitude+","+position.coords.longitude+"&key=AIzaSyA47t1t0JjL53u3KznXoMF_6oeVVjWTYaM";
-    $.post(url, function (response) {
-      //var jsonLoc = JSON.stringify(response.results);
-    console.log(response.results);
-    });
-/*     return position.coords.latitude + 
-    "," + position.coords.longitude; */	
-  }  
 </script> 
 
 <!-- Login Div -->
 <!-- <div id="profile_div" class="DynamicDivs w3-container w3-padding w3-animate-zoom" style="max-width:1400px;margin-top:80px;display: none;">    -->
-<div id="login_div" class="DynamicDivs  w3-container w3-padding w3-animate-left" style="max-width:1400px;margin-top:80px;display: none;">
-<div class="w3-cell">
+<div id="login_div" class="DynamicDivs w3-container w3-padding w3-animate-left" style="max-width:100%;margin-top:80px;display: none;">
+<div class="w3-cell w3-rest">
 <form id="log_form" class="w3-container"  onsubmit="return false">
-<input id="username" placeholder="username" class="w3-input w3-border">
-<input id="password" placeholder="password" class="w3-input w3-border">
-<button id="loginBtn"  class="w3-btn w3-hover-grey">Login</button>
+<input id="username" placeholder="username" class="w3-input w3-animate-input" type="text" style="width:170px" ><br>
+<input id="password" placeholder="password" class="w3-input w3-animate-input" type="text" style="width:170px"><br>
+<button id="loginBtn"  class="w3-btn w3-white w3-border w3-border-purple w3-hover-purple">Login</button>
 </form>
 </div>
 </div>
@@ -111,7 +107,7 @@ function getLocation()
 
 <!-- Reg Div -->
 
-<div id="reg_div" class="DynamicDivs w3-container w3-animate-left" style="max-width:1400px;margin-top:80px;display: none;"">
+<div id="reg_div" class="DynamicDivs w3-cell-row w3-animate-left" style="max-width:1400px;margin-top:80px;display: none;"">
 <form id="reg_form" onsubmit="return false">
 <div class="w3-half w3-padding">
 <h1> Basic </h1>
@@ -127,6 +123,7 @@ function getLocation()
 <input id="pass2" name="pass2" type="text"  class="w3-input w3-clear" required>
 <label>Email</label>
 <input type="email"  id="email" name="email" class="w3-input w3-clear" required>
+
 </div>
 
 <div class="w3-half w3-padding w3-border-blue">
@@ -164,17 +161,19 @@ function getLocation()
 <label>TV</label>
 <input id="outdoor"  name="oda" class="w3-check" type="checkbox">
 <label>OUTDOOR ACTIVITIES</label>
-<input id="indoor" name="ida"  class="w3-check" type="checkbox">
-<label>INDOOR ACTIVITIES</label><br>
-<hr>
-<button id="regBtn"  class="w3-btn w3-hover-grey w3-center w3-black" >Register</button><!-- Register<button> -->
+<textarea placeholder="Enter BIO" rows="4" cols="50" id="indoor" name="ida"  class="w3-input" type="text" required></textarea>
+<!-- <label>BIO</label><br> -->
 
 
 
 <!-- <button id="regBtn"  class="w3-btn w3-hover-grey" >Register</button>Register<button> -->
 </form>
 </div>
+<div class="w3-row">
 
+<button id="regBtn"  class="w3-btn w3-hover-grey w3-center w3-black" >Register</button><!-- Register<button> -->
+
+</div>
 </div>
 
 <!-- Reg Div -->
@@ -441,10 +440,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     </div>
     <!-- contentwrapper close -->
 
-
-      <footer class="w3-container w3-padding-8 w3-black w3-bottom">
+<!-- <div class="w3-row w3-bottom">
+      <footer class="w3-container w3-padding-8 w3-black ">
     <h4 class=" w3-animate-opacity w3-center">MATCHA</h4>
   </footer>
+</div> -->
 </body>
 
 

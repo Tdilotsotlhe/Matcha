@@ -160,13 +160,21 @@ function checkLogin(){
         if (response == "1") {
          
             x = 1;
-            $("#login").hide("slow");
+            $("#login").hide("fast");
             $("#logout").show("slow");
-            $("#register").hide("slow");
+            $("#profile").show("slow");
+            $("#friends").show("slow");
+            $("#matcha").show("slow");
+            $("#Dashb").show("slow");
+            $("#register").hide("fast");
         }else{
             $("#register").show("slow");
             $("#login").show("slow");
-            $("#logout").hide("slow");
+            $("#logout").hide("fast");
+            $("#profile").hide("fast");
+            $("#friends").hide("fast");
+            $("#matcha").hide("fast");
+            $("#Dashb").hide("fast");
             x = 0;
         }
     });
