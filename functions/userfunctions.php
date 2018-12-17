@@ -47,6 +47,10 @@ switch ($_REQUEST['action']) {
         } 
     break;
         
+    case 'getMyIP':
+            getIP();
+    break;
+        
     }
     
 
@@ -338,6 +342,12 @@ function checkProf(){
   }
 
 
+}
+
+
+function getIP()
+{
+  echo $_SERVER['REMOTE_ADDR'];
 }
 
 

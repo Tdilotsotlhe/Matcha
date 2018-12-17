@@ -48,7 +48,7 @@ function myFunction(id) {
 <!-- <div class="w3-container w3-teal">
   <h1>Header</h1>
 </div> -->
-<div class="w3-container w3-black">
+<div class="w3-container w3-black w3-top">
 
     <div class="w3-bar-block w3-black w3-hide-small">
         <p id="Dashb" data-location="Dashboard" onclick="newnav(this)" class="newnav w3-button w3-hover-grey w3-black">Home</p>
@@ -62,7 +62,7 @@ function myFunction(id) {
     </div>
 
 
-<button onclick="myFunction('Demo1')" class="w3-button w3-block w3-black w3-left-align w3-hide-large">
+<button onclick="myFunction('Demo1')" class="w3-button w3-block w3-black w3-left-align w3-hide-large w3-hide-medium">
 Menu</button>
 <div id="Demo1" class="w3-hide">
 <p id="Dashb2" data-location="Dashboard" onclick="newnav(this)" class="newnav w3-block w3-left-align w3-button w3-hover-grey w3-grey">Home</p>
@@ -77,7 +77,7 @@ Menu</button>
 </div>
 <br>
     <!-- contentwrapper open -->
-    <div id="content_wrapper" class="w3-container">
+    <div id="content_wrapper" class="w3-container" style="margin-bottom:80px;margin-top:80px;width:100%;">
 
         <!-- New Approach -->
 <!-- <div class="w3-cell-row">
@@ -260,19 +260,19 @@ Menu</button>
 
 
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
-</style>
+</style> -->
 
 
 
 <!-- Page Container -->
-<div id="profile_div" class="DynamicDivs w3-container w3-padding w3-animate-zoom" style="max-width:1400px;margin-top:80px;display: none;">    
+<div id="profile_div" class="DynamicDivs w3-container w3-padding w3-animate-zoom" style="max-width:100%;margin-top:80px;display: none;">    
   <!-- The Grid -->
   <div class="w3-row">
     <!-- Left Column -->
@@ -440,11 +440,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     </div>
     <!-- contentwrapper close -->
 
-<!-- <div class="w3-row w3-bottom">
-      <footer class="w3-container w3-padding-8 w3-black ">
+<!-- <div class="w3-row w3-bottom"> -->
+      <footer class="w3-container w3-padding-8 w3-black w3-bottom">
     <h4 class=" w3-animate-opacity w3-center">MATCHA</h4>
   </footer>
-</div> -->
+<!-- </div> -->
 </body>
 
 
