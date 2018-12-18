@@ -83,20 +83,7 @@ function getLocation()
 
   }
 
-/*   function newLocationFunc(theAddy){
-    url = "https://geoip-db.com/jsonp/"+theAddy;
-    console.log(url);
-    $.post(url, function (response) {
-      var jsonified = response.slice(9,-1);
-      var test = JSON.parse(jsonified);
-    console.log(test);
-    console.log(test['latitude']);
-    console.log(test["longitude"]);
-  });
-} */
 
-
-  
   function showError(error) {
       //run IP geoloc on failure
     switch(error.code) {
