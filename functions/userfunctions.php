@@ -15,11 +15,11 @@ switch ($_REQUEST['action']) {
         break;
 
     case 'newUser':
-        if (isset($_REQUEST['username'])) {
+         if (isset($_REQUEST["username"])) {
            reguser();
         }else{
-            echo 0;
-        }
+          echo 0;
+        } 
     break;
 
     case 'emptyProfile':
@@ -108,12 +108,14 @@ include "../config/database.php";
  $user = $_REQUEST['username'];
  $pass = $_REQUEST['pass1'];
  $pass2 = $_REQUEST['pass2'];
- $email = $_REQUEST['email'];
+ $email = $_REQUEST['email']; 
+/*
+ var_dump($_REQUEST);
+ exit();
+ */
+ 
  $acthash =md5(rand(0,1010));
 
- //run validation
-
- //Var_dump($_POST);
 
 try {
   $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASS);
@@ -140,7 +142,8 @@ die();
     $test['friends'] = "none";
     $test['interests'] = $_REQUEST['profile'];
     $test['gender'] = $_REQUEST['option'];
-     // $newprofile = json_encode($test);
+    $test['location'] = $_REQUEST['location'];
+      $newprofile = json_encode($test);
     //  $newprofile = json_encode("empty prilfe : empty");
 
     $sql = "INSERT INTO users (username, passw, email, acthash, `first_name`, `last_name`, `profile`) VALUES (:username, :passw, :email, :acthash, :nme, :snme, :pfile)";

@@ -1,21 +1,18 @@
-
+newUsersLocation = "";
 
 $(document).ready(function(){
+    getLocation();
     location.hash = "Register";
     $("#regBtn").on("click", function (event) {
         alert("work");
-       
-      //  event.preventDefault();
-        /* var vars = $("input").each(function() {
-            alert($(this).val());
-        }); */
+       // alert(newUsersLocation);
         var vars = $('#reg_form').serialize();
-        
-         console.log(vars);
+        console.log(vars);
         var arr_unchecked_values = $('input[type=checkbox]:checked').map(function(){return this.name}).get();
-         //console.log(arr_unchecked_values);
-       //  newMember(vars, arr_unchecked_values);
-     
+      //  vars.push({name: "location", value: newUsersLocation});
+        vars += "&location="+newUsersLocation;
+        //console.log(vars);
+        newMember(vars, arr_unchecked_values);
     });
 });
 
@@ -24,12 +21,7 @@ function getLocation()
 
   if (navigator.geolocation)
     {
-      alert("it works");
-/*       url = "https://geoip-db.com/jsonp/";
-      $.post(url, function (response) {
-      console.log(response.slice(9,-1));
-      }); */
-     
+     // alert("it works");
       navigator.geolocation.getCurrentPosition(showPosition, showError);
 
     }
@@ -44,30 +36,26 @@ function getLocation()
     $.post(url, function (response) {
       //var jsonLoc = JSON.stringify(response.results);
       console.log("G API START");
-    console.log(response.results[4]["geometry"]["location"]["lat"]+" , "+response.results[4]["geometry"]["location"]["lng"]);
-    console.log("G API END");
+/* 
+      console.log(response.results[2].address_components[2].long_name);
+      console.log(response.results[2].address_components[5].long_name);
+      console.log(response.results[2].address_components[6].long_name); */
+      newUsersLocation = response.results[2].address_components[2].long_name
+       +", "+response.results[2].address_components[5].long_name+", "+response.results[2].address_components[6].long_name;
+      console.log("G API END");
   });
 
   }
 
   function ipFetch()
   {
-
-    ///////////IP search start
-
     url = "http://api.ipstack.com/check?access_key=d115280486eb2f2f8ebb6038c3dd4423";
   //  url = "https://geoip-db.com/jsonp/";
       $.post(url, function (response) {
-        //var jsonified = response.slice(9,-1);
-        //var test = JSON.parse(jsonified);
-        console.log(response);
-      console.log(response['latitude']);
-      console.log(response["longitude"]);
-      gMapSrch(response);
+        console.log(response.city +", "+response.region_name+", "+response.country_name);
+        newUsersLocation = response.city +", "+response.region_name+", "+response.country_name;
+       // alert(newUsersLocation);
       });
-
-      //////////IP search end
-
   };
 
 
@@ -77,7 +65,7 @@ function getLocation()
           url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+res['latitude']+","+res["longitude"]+"&key=AIzaSyA47t1t0JjL53u3KznXoMF_6oeVVjWTYaM";
           $.post(url, function (response2) {
             console.log("gmaps");
-          console.log(response2.results[4]);
+          console.log(response2.results[2].address_components[2].long_name);
           });   
           //////////googlemaps end
 
@@ -88,19 +76,19 @@ function getLocation()
       //run IP geoloc on failure
     switch(error.code) {
       case error.PERMISSION_DENIED:
-        alert("User denied the request for Geolocation.");
+     //   alert("You have denied the request for Geolocation.");
         ipFetch();
         break;
       case error.POSITION_UNAVAILABLE:
-        alert("Location information is unavailable.");
+     //   alert("Location information is unavailable.");
         ipFetch();
         break;
       case error.TIMEOUT:
-        alert("The request to get user location timed out.");
+      //  alert("The request to get your location timed out.");
         ipFetch();
         break;
       case error.UNKNOWN_ERROR:
-        alert("An unknown error occurred.");
+     //   alert("An unknown error occurred.");
         ipFetch();
         break;
     }
@@ -108,11 +96,9 @@ function getLocation()
 
  function newMember(varstring, interests) {
     
-    // console.log("testnewmember fucn");
-   // console.log(varstring);
-    $.post('functions/userfunctions.php?action=newUser&' + varstring +"&profile="+ JSON.stringify(interests), function (response) {
-       alert(JSON.parse(response));
-     console.log(response);
+    $.post('functions/userfunctions.php?action=newUser&'+ varstring +"&profile="+ JSON.stringify(interests), function (response) {
+      // alert(JSON.parse(response));
+    // console.log(JSON.parse(response));
        if(response == 1){
         $("#content_wrapper").load("content/forms.php #login_div", function() {
             /*  $.getScript("js/"+val+"-script.js", function() {
@@ -123,6 +109,9 @@ function getLocation()
              console.log($("#DynamicScript").attr('src'));
            });
       
+       }else{
+         alert("reg failed");
+         console.log(response);
        }
     });
 } 

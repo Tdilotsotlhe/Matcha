@@ -76,7 +76,7 @@ Menu</button>
 
 </div>
 <br>
-    <!-- contentwrapper open -->
+    <!-- contentwrapper open up -->
     <div id="content_wrapper" class="w3-container" style="margin-bottom:80px;margin-top:80px;width:100%;">
 
         <!-- New Approach -->
@@ -123,6 +123,8 @@ Menu</button>
 <input id="pass2" name="pass2" type="text"  class="w3-input w3-clear" required>
 <label>Email</label>
 <input type="email"  id="email" name="email" class="w3-input w3-clear" required>
+<label>Date of Birth</label>
+<input type="date"  id="dob" name="dob" class="w3-input w3-clear" required>
 
 </div>
 
@@ -161,7 +163,7 @@ Menu</button>
 <label>TV</label>
 <input id="outdoor"  name="oda" class="w3-check" type="checkbox">
 <label>OUTDOOR ACTIVITIES</label>
-<textarea placeholder="Enter BIO" rows="4" cols="50" id="indoor" name="ida"  class="w3-input" type="text" required></textarea>
+<textarea placeholder="Enter BIO" rows="4" cols="50" id="Bio" name="Bio"  class="w3-input" type="text" required></textarea>
 <!-- <label>BIO</label><br> -->
 
 
@@ -298,7 +300,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
           <p>Interests</p>
           <div id="interests">
 
-</div>
+        </div>
         </div>
       </div>
       <br>

@@ -56,7 +56,7 @@ $(document).ready(function(){
     var userinfo = fetchUserinfo();
     userinfo = JSON.parse(userinfo.responseText);
     loadProfile(userinfo);
-    loadInterests(userinfo);
+    //loadInterests(userinfo);
 
     
   function getLocation() {
@@ -119,9 +119,26 @@ function loadProfile(userprof) {
 //console.log(userprof);
 // alert(userprof);
 $("#profileName").html(userprof[1]);
-//load location and DOB
+
+theprof = JSON.parse(userprof[9]);
+//alert(theprof.location);
+theprof2 = JSON.parse(theprof.interests);
+
+$("#interests").html("");
+for(var w = 0; w < theprof2.length; w++){
+
+  element = $("<span class='w3-badge w3-green'></span><br>").text(theprof2[w]); 
+
+  $("#interests").append(element);
+
 
 }
+
+$("#profileLocation").html(theprof.location);
+
+
+}
+
 function showme(item){
     console.log(item);
     var w = item.getAttribute("data-key");
@@ -132,12 +149,12 @@ function showme(item){
 function loadInterests(userprof) {
      //console.log(userprof[9]);
 
-   prof = JSON.parse(userprof[9]);
-   interArray = prof["Interests"];
-   console.log(interArray);
+ //  prof = JSON.parse(userprof[9]);
+   //interArray = prof["Interests"];
+   //console.log(interArray);
    $("#interests").html("");
    for (var key in interArray) {
-    console.log(interArray[key]);
+    //console.log(interArray[key]);
     var elm = "<span id='"+key+"' data-key='"+key+"' onclick='showme(this)' class='w3-tag w3-small w3-theme-l3 w3-hover-blue'>"+interArray[key]+"</span><br>";
     $("#interests").append(elm);
 }
