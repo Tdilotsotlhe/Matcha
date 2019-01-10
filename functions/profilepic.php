@@ -30,8 +30,12 @@ if(isset($_POST["submit"])) {
     }
 }
 
-// Check if file already exists
-if (file_exists($target_file)) {
+// Check if file already exists add sessionID
+
+//new target name
+$ntn = "../images/".$_SESSION['uid']."$".$_FILES["userpic"]["name"];
+
+if (file_exists($ntn)) {
     echo "Sorry, file already exists.";
     $uploadOk = 0;
 }
@@ -110,6 +114,7 @@ function    insertUserpic($filename, $ftype)
     $stmt->bindParam(':users_id', $theid);
 
     $stmt->execute();
+    exit();
     //header("Location: ../index.php?reg=1");
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";

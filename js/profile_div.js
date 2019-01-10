@@ -9,7 +9,7 @@ $(document).ready(function(){
     //loadInterests(userinfo);
     $("#uploadForm").on('submit',(function(e) {
       e.preventDefault();
-      alert("defPrev");
+      //alert("defPrev");
       ajaxupload();
     }));
 
@@ -31,14 +31,19 @@ function loadGallery(){
   $('#profilePics').html("");
 
   for (var p = 0; p < images.length; p++){
-    alert(images[p]);
+    //alert(images[p]);
     num = Math.floor((Math.random() * 100) + 1);
      var img = $('<img>'); 
     img.attr('src', "images/"+images[p]+"?v="+num);
     img.attr('width', "60px");
     img.attr('height', "60px");
+    img.attr('name', images[p]);
     img.appendTo('#profilePics');
+    img.on('click', function() {
+      alert(this.name);
+    });
     //$('#profilePics').append(images.responseText[p]);
+
   }
 
  // $('#profilePics').html(JSON.parse(images.responseText));
@@ -60,11 +65,13 @@ function ajaxupload() {
    var thefile = document.getElementById("userpic").files[0];
   var formData = new FormData();
   formData.append("userpic", thefile);
-   hr.open("POST", url, true);
+   hr.open("POST", url, false);
    hr.onreadystatechange = function() {
        if(hr.readyState == 4 && hr.status == 200) {
            var return_data = hr.responseText;
-          alert(return_data);
+         // alert(return_data);
+         console.log("up proc occ");
+         loadGallery();
           ///refresh profile pic div
        }
    }
