@@ -32,8 +32,9 @@ function loadGallery(){
 
   for (var p = 0; p < images.length; p++){
     alert(images[p]);
+    num = Math.floor((Math.random() * 100) + 1);
      var img = $('<img>'); 
-    img.attr('src', "images/"+images[p]);
+    img.attr('src', "images/"+images[p]+"?v="+num);
     img.attr('width', "60px");
     img.attr('height', "60px");
     img.appendTo('#profilePics');
