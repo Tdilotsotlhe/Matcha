@@ -31,12 +31,12 @@ switch ($_REQUEST['action']) {
     break;
 
     case 'Login':
-      /*   if (isset($_REQUEST['username'])) { */
            Login();
-      /*   }else{ */
-      /*       echo 0; */
-      /*   } */
     break;
+
+    case 'getpics':
+    loadpics();
+break;
         
 
     case 'getProf':
@@ -232,8 +232,8 @@ function setlogin($row)
     }
 
 function Login(){
-/*     var_dump($_REQUEST);
-    echo "fokol"; */
+
+  
 
 
     require_once "../config/database.php";
@@ -351,6 +351,52 @@ function checkProf(){
 function getIP()
 {
   echo $_SERVER['REMOTE_ADDR'];
+}
+
+function loadpics(){
+
+
+  require_once "../config/database.php";
+  $uid = $_SESSION['uid'];
+
+  
+  try {
+      $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASS);
+      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+    }
+    
+     try {
+      $dbh->query("USE ".$DB_NAME);
+    } catch (Exception $e) {
+       die("db creation failed!");
+    } 
+    
+      try { 
+        $stmt = $dbh->prepare("SELECT * FROM gallery WHERE users_id=?");
+        $retimg = array();
+        if($stmt->execute([$uid])){
+          
+          while($row = $stmt->fetch()){
+         
+         $retimg[] = $row['img_name'];
+          }
+          echo json_encode($retimg);
+        }
+      }
+      catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+    }
+  
+
+
+
+
+
+  ///////////
 }
 
 

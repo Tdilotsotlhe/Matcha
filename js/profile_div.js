@@ -1,81 +1,47 @@
 var test = "1";
 
-/* function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(showPosition);
-    } else { 
-      x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-  }
-      
-function showPosition(position) {
-    x.innerHTML="Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-}
-
-function loctest(){
-var x = document.getElementById("demo");
-alert(x);
-} */
-
-/* function getLocation(x) {
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(showPosition);
-    } else {
-      x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-  }
-  
-  function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude; 
-  } */
-
-/*   function getLocation(ddd) {
-      alert(ddd);
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(showPosition);
-    } else { 
-      x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-  }
-
-  function showPosition(position) {
-    x.innerHTML="Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-}
-
-
-  function loctest(){
-    var x = document.getElementById("demo");
-    getLocation(x);
-    } */
-
 $(document).ready(function(){
     location.hash = "Profile";
     var userinfo = fetchUserinfo();
     userinfo = JSON.parse(userinfo.responseText);
     loadProfile(userinfo);
+    loadGallery();
     //loadInterests(userinfo);
-
-    
-  function getLocation() {
-    var x = document.getElementById("demo");
-      if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(showPosition);
-      } else { 
-          x.innerHTML = "Geolocation is not supported by this browser.";
-      }
-  }
-  
-  function showPosition(position) {
-      x.innerHTML = "Latitude: " + position.coords.latitude + 
-      "<br>Longitude: " + position.coords.longitude; 
-  }
-
-  $("#geoBTN").click(getLocation());
+    $("#uploadForm").on('submit',(function(e) {
+      e.preventDefault();
+      alert("defPrev");
+      ajaxupload();
+    }));
 
 });
+
+
+function fetchGal(){
+$.ajaxSetup({async: false});  
+return $.post('functions/userfunctions.php?action=getpics', function (response) {
+});
+
+}
+
+function loadGallery(){
+  images = fetchGal();
+  images = JSON.parse(images.responseText);
+  console.log(images);
+ // console.log(JSON.parse(images.responseText));
+  $('#profilePics').html("");
+
+  for (var p = 0; p < images.length; p++){
+    alert(images[p]);
+     var img = $('<img>'); 
+    img.attr('src', "images/"+images[p]);
+    img.attr('width', "60px");
+    img.attr('height', "60px");
+    img.appendTo('#profilePics');
+    //$('#profilePics').append(images.responseText[p]);
+  }
+
+ // $('#profilePics').html(JSON.parse(images.responseText));
+}
 
 
 function fetchUserinfo(){
@@ -85,42 +51,36 @@ return $.post('functions/userfunctions.php?action=getProf&loadProfile=1', functi
 //  return response;
 });
 
-
-
-
-
-
-///////geolocation end
-
-//$.ajaxSetup({async: true});  
-
-
-
 }
 
-// function loadLocation() {
-//     var x = document.getElementById("demo");
-// /* function getLocation() {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.watchPosition(showPosition);
-//   } else {
-//     x.innerHTML = "Geolocation is not supported by this browser.";
-//   }
-// }
-// function showPosition(position) {
-//   x.innerHTML = "Latitude: " + position.coords.latitude + 
-//   "<br>Longitude: " + position.coords.longitude; 
-// } */
-// }
+function ajaxupload() {
+  var hr = new XMLHttpRequest();
+   var url = "functions/profilepic.php";
+   var thefile = document.getElementById("userpic").files[0];
+  var formData = new FormData();
+  formData.append("userpic", thefile);
+   hr.open("POST", url, true);
+   hr.onreadystatechange = function() {
+       if(hr.readyState == 4 && hr.status == 200) {
+           var return_data = hr.responseText;
+          alert(return_data);
+          ///refresh profile pic div
+       }
+   }
+   hr.send(formData); 
+
+ 
+  }
+
 
 
 function loadProfile(userprof) {
 
 //console.log(userprof);
-// alert(userprof);
-$("#profileName").html(userprof[1]);
+//alert(userprof);
+$("#profileName").html(userprof['first_name']);
 
-theprof = JSON.parse(userprof[9]);
+theprof = JSON.parse(userprof['profile']);
 //alert(theprof.location);
 theprof2 = JSON.parse(theprof.interests);
 

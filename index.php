@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -239,26 +240,6 @@ Menu</button>
 
 
 <!-- profile Div -->
-<!-- <div id="profile_div" class=" DynamicDivs w3-container  w3-cell w3-mobile w3-theme-d4 w3-animate-opacity w3-animate-zoom" style="display: none;">
-  <p>MY PROFILE</p>
-
-  <div class="w3-panel w3-text-theme w3-round-xlarge">
-<label>username</label>
-<input class="w3-input w3-theme-d4" type="text" id="newname">
-<p><button onclick="changeuser();" class="w3-btn w3-round">Submit</button></p>
-</div>
-  
-  <div class="w3-panel  w3-text-theme w3-round-xlarge">
-  <label>email</label>
-<input class="w3-input w3-theme-d4" type="text" id="newemail">
-<p><button onclick="changeemail()" class="w3-btn w3-round">Submit</button></p>
-
-</div>
-  
-<div class="w3-panel  w3-text-theme w3-round-xlarge">
-<label>Notifications</label>
-<input id="notcheckbox" class="w3-check" type="checkbox" checked="checked">
-</div> -->
 
 
 
@@ -286,7 +267,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
          <p class="w3-center"><img src="https://api.adorable.io/avatars/166/abott@adorable.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
          <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i><label id="profileName"> Name</label></p>
-         <p ><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> <font id="profileLocation">London, UK</font> <p id="demo"></p></p><button id="profileLoadBtn">Try It</button>
+         <p ><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> <font id="profileLocation">London, UK</font> 
          <p id="profileDOB"><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>
         </div>
       </div>
@@ -317,8 +298,19 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
               <h6 class="w3-opacity">Photo Gallery</h6>
-              <p id="profGallery" class="w3-border w3-padding w3-center">Status: Feeling Blue</p>
-              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>Upload</button> 
+              <p name="profilePics" id="profilePics">sdfsdf</p>
+              	<form id="uploadForm" action="functions/profilepic.php" method="post">
+		<div id="targetOuter">
+			<div id="targetLayer"></div>
+			
+			<div class="icon-choose-image" >
+			<input name="userpic" id="userpic" type="file" class="inputFile" />
+			</div>
+		</div>
+		<div>
+			<input type="submit" value="Upload Photo" class="btnSubmit" />
+		</div>
+	</form>
             </div>
           </div>
         </div>
