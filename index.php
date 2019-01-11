@@ -320,8 +320,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       
         
         <h4>Member Profiles</h4><br>
+        <div id ="memberProf" class="w3-row-padding" style="margin:0 -16px">
+        FILTERS
+        </div>
         <hr class="w3-clear">
- 
+    
           <div class="w3-row-padding" style="margin:0 -16px">
             <div class="w3-quarter">
               <img src="" style="width:100%" alt="Northern Lights" class="w3-margin-bottom">

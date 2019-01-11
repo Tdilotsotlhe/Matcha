@@ -1,12 +1,26 @@
 
 $(document).ready(function(){
     $(this).scrollTop(0);
-    location.hash = "Home";
+
+
+    
+    if (window.location.hash)
+    {
+       // newnav(window.location.hash);
+       alert(window.location.hash);
+       //alert(window.location.hash.toLowerCase());
+       $(window.location.hash.toLowerCase()).click();
+        $(".navigation").addClass("w3-animate-opacity");
+    }else{
+       // console.log(location.hash);
+        location.hash = "Home";
+    }
+    //location.hash = "Home";
     console.log($("#DynamicScript").attr('src'));
     //$("#DynamicScript").attr('src', "js/loadnew.js"); 
     //console.log($("#DynamicScript").attr('src'));
-newnav(location.hash);
-$(".navigation").addClass("w3-animate-opacity");
+//newnav(location.hash);
+//$(".navigation").addClass("w3-animate-opacity");
 
 
 checkLogin(); 
@@ -90,7 +104,7 @@ navItem = navItem.replace("#","");
         return ;
     }
     if(location == "#Home"){
-      //   alert("tsek");
+         alert("tsek");
  
          $(location).show();
          window.location.hash = location;

@@ -6,6 +6,7 @@ $(document).ready(function(){
     userinfo = JSON.parse(userinfo.responseText);
     loadProfile(userinfo);
     loadGallery();
+    loadMembers();
     //loadInterests(userinfo);
     $("#uploadForm").on('submit',(function(e) {
       e.preventDefault();
@@ -22,6 +23,39 @@ return $.post('functions/userfunctions.php?action=getpics', function (response) 
 });
 
 }
+
+function loadMembers(){
+  alert("member loader");
+  $.ajaxSetup({async: false});  
+ members = $.post('functions/userfunctions.php?action=loadmembers', function (response) {
+ });
+ //console.log(members.responseText);
+ memberArray = JSON.parse(members.responseText);
+ console.log(memberArray);
+
+
+ for (var i= 0; i < memberArray.length; i++)
+ {
+   //make div
+   console.log(memberArray[i][1]);
+   var carddiv = $("<div class='w3-card-4'></div>");
+   var ptag = $('<p></p>').text(memberArray[i]['username']); 
+
+   ptag.appendTo(carddiv);
+   carddiv.appendTo('#memberProf');
+  // $("memberProf").append(content);
+ }
+/* 
+ for (const key in memberArray) {
+  if (memberArray.hasOwnProperty(key)) {
+      const element =memberArray[key];
+      alert(element);
+  } */
+}
+
+
+
+
 
 function loadGallery(){
   images = fetchGal();

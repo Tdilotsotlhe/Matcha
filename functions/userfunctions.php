@@ -50,6 +50,9 @@ break;
     case 'getMyIP':
             getIP();
     break;
+    case 'loadmembers':
+            loadMem();
+    break;
         
     }
     
@@ -399,6 +402,46 @@ function loadpics(){
   ///////////
 }
 
+
+function loadMem(){
+  require_once "../config/database.php";
+  $uid = $_SESSION['uid'];
+/*   echo $uid;
+  exit(); */
+
+  
+  try {
+      $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASS);
+      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+    }
+    
+     try {
+      $dbh->query("USE ".$DB_NAME);
+    } catch (Exception $e) {
+       die("db creation failed!");
+    } 
+    
+      try { 
+        $stmt = $dbh->prepare("SELECT * FROM users WHERE user_id!=?");
+        $retimg = array();
+        if($stmt->execute([$uid])){
+          
+         $row = $stmt->fetchAll();
+  
+          echo json_encode($row);
+        }
+      }
+      catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+    }
+  
+
+
+}
 
 
 ?>
