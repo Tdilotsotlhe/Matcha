@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 11, 2018 at 06:29 AM
+-- Generation Time: Apr 29, 2019 at 01:17 AM
 -- Server version: 5.7.23
 -- PHP Version: 7.1.22
 
@@ -25,104 +25,51 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comments`
---
-
-CREATE TABLE `comments` (
-  `comms_id` int(255) NOT NULL,
-  `friend_id` int(255) NOT NULL,
-  `comment` varchar(255) NOT NULL,
-  `commtstamp` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-  `comimg_id` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `comments`
---
-
-INSERT INTO `comments` (`comms_id`, `friend_id`, `comment`, `commtstamp`, `comimg_id`) VALUES
-(3, 1, 'asdasd', '2018-11-17 12:01:09.177055', 50),
-(4, 1, 'asdasdasfgasg', '2018-11-17 12:01:13.040570', 50),
-(6, 1, 'zxvzxv', '2018-11-17 15:48:45.768209', 53),
-(7, 1, 'fdfdhbfddfbbdf', '2018-11-17 16:02:32.677313', 50),
-(8, 1, 'asdasdasd', '2018-11-17 16:11:02.855319', 63),
-(9, 1, 'sfsfsfsf', '2018-11-17 16:11:09.005210', 62),
-(10, 1, 'sddgd', '2018-11-17 16:11:13.445542', 61),
-(11, 1, 'asfasfasfasfgfjtryuet', '2018-11-17 16:11:39.746182', 63),
-(12, 18, 'dagdg', '2018-11-18 10:23:26.886451', 51),
-(13, 18, 'cvvcvn', '2018-11-18 10:27:09.116303', 45),
-(14, 18, 'sdgsdgsdg', '2018-11-18 10:27:32.507755', 36),
-(15, 18, 'sdgsdgsdgdfh', '2018-11-18 10:29:19.020301', 36),
-(16, 18, 'fgdfgss', '2018-11-18 10:30:04.251268', 60),
-(17, 18, 'sdgsdg', '2018-11-18 10:30:47.666301', 61),
-(18, 18, 'aaaaa', '2018-11-18 10:32:35.233795', 57),
-(19, 1, 'ffffff', '2018-11-18 10:33:23.817121', 63),
-(20, 1, 'kkkkkk', '2018-11-18 10:33:41.624716', 63),
-(21, 18, 'dfhdfh', '2018-11-18 10:34:51.719809', 51),
-(22, 1, 'asdasdasd', '2018-11-18 13:36:58.615809', 65),
-(23, 1, 'asdasdasddfhdfhdfhdfhdfh', '2018-11-18 13:37:05.175585', 65),
-(24, 1, 'dfhdfhdfh', '2018-11-18 13:38:53.565587', 67),
-(25, 1, 'sfsfhfsh', '2018-11-19 06:56:22.956808', 69),
-(26, 1, 'tjgfgjfjfg', '2018-11-19 06:56:30.837933', 68),
-(27, 1, '', '2018-11-19 08:09:10.362775', 42),
-(28, 1, 'rjfhj', '2018-11-19 08:11:13.481680', 67),
-(29, 1, '', '2018-11-22 13:20:53.980329', 70),
-(30, 1, 'sfasfas', '2018-11-22 13:21:05.754134', 70),
-(31, 1, 'rdgfshsfdg', '2018-11-23 08:10:12.303418', 70);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `gallery`
 --
 
 CREATE TABLE `gallery` (
   `img_id` int(255) NOT NULL,
-  `img_name` varchar(255) NOT NULL,
-  `users_id` int(255) NOT NULL,
-  `uptime` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `img_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(255) NOT NULL,
+  `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `gallery`
 --
 
-INSERT INTO `gallery` (`img_id`, `img_name`, `users_id`, `uptime`) VALUES
-(5, '1$memes-face-png-2.png', 1, '2018-11-07 08:16:23.678027'),
-(6, '1$Screen Shot 2018-11-03 at 14.06.40.png', 1, '2018-11-07 08:16:29.470490'),
-(7, '1$herpderp.png', 1, '2018-11-07 08:16:41.717686'),
-(8, '1$photo-1533467915241-eac02e856653.jpeg', 1, '2018-11-09 06:11:05.491937'),
-(34, '1$252.png', 1, '2018-11-09 07:32:18.585583'),
-(36, '1$cxncn.jpeg', 1, '2018-11-11 12:22:58.579997'),
-(38, '1$qq.jpeg', 1, '2018-11-11 12:24:25.339209'),
-(41, '1$penguin.png', 1, '2018-11-11 13:53:49.198904'),
-(42, '1$fgfgj.jpeg', 1, '2018-11-12 08:33:14.964764'),
-(43, '1$humb3.png', 1, '2018-11-12 08:34:33.738064'),
-(44, '1$qwrrrr.jpeg', 1, '2018-11-12 08:40:20.595940'),
-(45, '1$herpderp.png', 1, '2018-11-12 08:44:00.168454'),
-(46, '1$896.png', 1, '2018-11-12 08:58:56.106535'),
-(47, '1$796.png', 1, '2018-11-16 12:01:42.482771'),
-(48, '1$697.png', 1, '2018-11-16 12:02:52.000300'),
-(49, '1$736.png', 1, '2018-11-16 12:21:29.641423'),
-(50, '1$thumb2.png', 1, '2018-11-16 12:48:33.143507'),
-(51, '1$7.png', 1, '2018-11-16 12:49:22.567953'),
-(52, '1$691.png', 1, '2018-11-16 12:50:21.822799'),
-(53, '1$7.png', 1, '2018-11-16 13:30:20.312155'),
-(55, '1$humb3.png', 1, '2018-11-17 12:52:08.704332'),
-(57, '1$free-png-image-39401-991.png', 1, '2018-11-17 12:54:09.930223'),
-(60, '18$312.png', 18, '2018-11-17 16:03:33.691215'),
-(61, '18$899.png', 18, '2018-11-17 16:03:40.731184'),
-(62, '18$155.png', 18, '2018-11-17 16:03:47.904944'),
-(63, '18$167.png', 18, '2018-11-17 16:03:54.902728'),
-(64, '1$645.png', 1, '2018-11-18 10:36:49.786486'),
-(65, '1$942.png', 1, '2018-11-18 10:38:58.657163'),
-(66, '1$116.png', 1, '2018-11-18 13:38:35.371691'),
-(67, '1$thumb4.png', 1, '2018-11-18 13:38:44.688669'),
-(68, '1$cxncn.jpeg', 1, '2018-11-19 05:59:06.883976'),
-(69, '1$497.png', 1, '2018-11-19 05:59:51.415922'),
-(70, '1$587.png', 1, '2018-11-19 06:57:07.466662'),
-(71, '1$219.png', 1, '2018-11-23 08:11:04.134048'),
-(72, '1$free-png-image-39401-991.png', 1, '2018-11-23 15:21:29.345616');
+INSERT INTO `gallery` (`img_id`, `img_name`, `user_id`, `time_stamp`) VALUES
+(8, 'images/gallery/Black_Cupid_oboimira_ru_201103162231484640.jpg_0.jpeg', 10, '2019-01-11 06:42:16'),
+(9, 'images/gallery/Black_Cupid_e22a4d9416fc3c46188751a651ada965.jpg_1.jpeg', 10, '2019-01-11 06:42:37'),
+(18, 'images/gallery/Black_Cupid_soufiane-idrassi-sss.jpg_4.jpeg', 10, '2019-01-17 06:24:02'),
+(47, 'https://data.whicdn.com/images/56978021/large.jpg', 17, '2019-01-30 07:23:02'),
+(48, 'https://pbs.twimg.com/profile_images/543749134076088320/_5IGZSJ2.jpeg', 19, '2019-01-30 07:23:02'),
+(49, 'https://pbs.twimg.com/profile_images/575446987408982019/9M56UceZ_400x400.jpeg', 20, '2019-01-30 07:23:02'),
+(50, 'https://tragictantrum.com/wp-content/uploads/2018/09/pretty-gallery-of-general-hospital-scoops-and-spoilers-carol-banks-weber-of-general-hospital-scoops-and-spoilers-carol-banks-weber.jpg', 21, '2019-01-30 07:23:02'),
+(51, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy8J7Goz7J1C9NWD97M8ldp8gdkQo8krZ6Sn-7EJ0AiqovMB91', 22, '2019-01-30 07:23:02'),
+(52, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_RMkP8CDiRR_ZRlifwHKAnEzSXSs_V3_3Hd6k346529pv13xmTg', 23, '2019-01-30 07:23:02'),
+(53, 'https://i.imgur.com/EcF03HZ.jpg', 25, '2019-01-30 07:23:02'),
+(54, 'http://www.babynameshub.com/upload/user_photos/Shelby-female-20160326-000542714.jpg', 26, '2019-01-30 07:23:02'),
+(55, 'https://i0.wp.com/www.teleblog.it/wp-content/uploads/2017/03/camilla-mangiapelo.jpg?resize=620%2C400&ssl=1', 27, '2019-01-30 07:23:02'),
+(56, 'https://tinathemusical.com/content/uploads/2017/11/Adreinne-Warren-Approved-Image-600x600.jpeg', 28, '2019-01-30 07:23:02'),
+(57, 'https://assets2.hrc.org/files/images/blog/KarlaPatriciaFloresPavon-1600x900.jpg', 29, '2019-01-30 07:23:02'),
+(58, 'https://pbs.twimg.com/media/BzeF125IAAIDZG-.jpg', 30, '2019-01-30 07:23:02'),
+(59, 'https://s3.amazonaws.com/giveffect-assets/system/photos/users/small/27245x72c2b2a8e71e1e8a4a7b21a2394a1efae22d9f40.jpg', 31, '2019-01-30 07:23:02'),
+(60, 'https://yt3.ggpht.com/a-/AAuE7mCqNsRrh7FHP0sDd6vqzX6kh0bQ1hoYiyGCLw=s900-mo-c-c0xffffffff-rj-k-no', 32, '2019-01-30 07:23:02'),
+(61, 'https://pbs.twimg.com/profile_images/741922249255575552/sRldcO3g_400x400.jpg', 33, '2019-01-30 07:23:02'),
+(62, 'https://pbs.twimg.com/profile_images/905702521728937984/rzoNtLDy_400x400.jpg', 18, '2019-01-30 07:23:02'),
+(63, 'https://m.media-amazon.com/images/M/MV5BYmI5YWZhM2YtOTJlYy00NjBmLTliZTItYzUzNmJlODBkMzVmXkEyXkFqcGdeQXVyNTI5NjIyMw@@._V1_UY317_CR20,0,214,317_AL_.jpg', 24, '2019-01-30 07:23:02'),
+(64, 'https://i.dailymail.co.uk/i/pix/2015/05/01/22/2834A4C600000578-0-image-m-64_1430515905072.jpg', 34, '2019-01-30 07:23:02'),
+(65, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNb1J4iSJVzt__CyMUpmYEGP5S_vGf5OqztePLxbwrG9ZsiGE2OA', 35, '2019-01-30 07:23:02'),
+(66, 'https://s.hdnux.com/photos/72/20/65/15273324/3/920x920.jpg', 36, '2019-01-30 07:23:02'),
+(67, 'https://cdn.newsapi.com.au/image/v1/575f468bd1ba0718afbac35f62f21f8e?width=650', 37, '2019-01-30 07:23:02'),
+(68, 'https://static1.squarespace.com/static/534346f2e4b01edccd7213e3/t/546ec5e4e4b0cb681e1d6871/1416545765510/About-Josh.jpg', 38, '2019-01-30 07:23:02'),
+(69, 'https://www.michael-patrick-kelly.com/img/MPK_by_Andreas_H_Bitesnich_4.jpg', 39, '2019-01-30 07:23:02'),
+(70, 'http://wavenewspapers.com/wp-content/uploads/2017/02/Simply-Jessica-01.jpg', 40, '2019-01-30 07:23:02'),
+(71, 'https://pixel.nymag.com/imgs/daily/vulture/2014/09/05/magazine/05-michael-egan.w330.h412.jpg', 41, '2019-01-30 07:23:02'),
+(72, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnM8bT-vZLLxxG-lb9c6XcqP9LJ_2Ffqd4PKR-CP-CM3Q8hHLDbA', 42, '2019-01-30 07:23:02'),
+(73, 'https://i.pinimg.com/280x280_RS/a2/e8/8f/a2e88fce83ef753322443ecab3880c11.jpg', 43, '2019-01-30 07:23:02');
 
 -- --------------------------------------------------------
 
@@ -131,10 +78,10 @@ INSERT INTO `gallery` (`img_id`, `img_name`, `users_id`, `uptime`) VALUES
 --
 
 CREATE TABLE `likes` (
-  `theimg_id` int(255) NOT NULL,
-  `likers_id` int(255) NOT NULL,
-  `likestatus` int(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `likie` int(11) NOT NULL,
+  `likers_id` int(11) NOT NULL,
+  `like_status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -144,101 +91,93 @@ CREATE TABLE `likes` (
 
 CREATE TABLE `users` (
   `user_id` int(255) NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `passw` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `passwd` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `joined` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `active` int(255) NOT NULL DEFAULT '0',
-  `notification` int(1) NOT NULL DEFAULT '1',
-  `acthash` varchar(255) NOT NULL DEFAULT '0',
-  `profile` json DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `ver_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notify` int(255) NOT NULL DEFAULT '0',
+  `profile` json DEFAULT NULL,
+  `views` json DEFAULT NULL,
+  `blocked` json DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `username`, `passw`, `email`, `active`, `notification`, `acthash`, `profile`) VALUES
-(31, 'admin', 'admin', 'admin', 'admin', 'admin', 0, 1, 'ef4e3b775c934dada217712d76f3d51f', '\"empty prilfe : empty\"'),
-(35, 'admin1', 'admin1', 'admin1', 'admin1', 'admin1', 0, 1, 'a733fa9b25f33689e2adbe72199f0e62', '\"empty prilfe : empty\"'),
-(36, 'admin2', 'admin2', 'admin2', 'admin2', 'admin2', 0, 1, '26408ffa703a72e8ac0117e74ad46f33', '\"empty prilfe : empty\"'),
-(37, 'JSON', 'JSON', 'JSON', 'JSON', 'JSON', 0, 1, '670e8a43b246801ca1eaca97b3e19189', '\"empty prilfe : empty\"'),
-(39, 'Admin123', 'Admin123', 'Admin123', 'Admin123', 'Admin123', 0, 1, '2f885d0fbe2e131bfc9d98363e55d1d4', '{\"friends\": \"none\", \"Profiletype\": \"NewProfile\"}');
+INSERT INTO `users` (`user_id`, `username`, `first_name`, `last_name`, `passwd`, `email`, `joined`, `active`, `ver_code`, `notify`, `profile`, `views`, `blocked`) VALUES
+(10, 'Black_Cupid', 'Marcelle', 'Bond', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'marcelle@mailinator.com', '2019-01-10 16:19:51', 1, '', 2, '{\"DOB\": \"1997-09-11\", \"bio\": \"young and reckless \", \"fame\": 144, \"gender\": \"Male\", \"interest\": {\"ART\": \"ART\", \"CODING\": \"CODING\", \"GAMING\": \"GAMING\", \"FRIENDS\": \"FRIENDS\", \"PHOTOGRAPHY\": \"PHOTOGRAPHY\", \"GETING STONED\": \"GETING STONED\"}, \"location\": \"Johannesburg\", \"last_login\": \"online\", \"preference\": \"Female\", \"notifications\": [\"Black_Cupid viewed you page\", \"Amy viewed you page\"]}', '[\"Black_Cupid\", \"Amy\"]', '{\"blockee\": [\"Tyler\", \"Whinarand\"], \"blocker\": []}'),
+(17, 'Amy', 'Amy', 'Willson', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'amy@mailinator.com', '2019-01-29 10:30:52', 1, '', 0, '{\"dp\": \"https://data.whicdn.com/images/56978021/large.jpg\", \"DOB\": \"1997-09-11\", \"bio\": \"young and reckless SHOW ME SOMETHING\", \"fame\": 8, \"gender\": \"Female\", \"interest\": {\"ART\": \"ART\", \"FOOD\": \"FOOD\", \"CODING\": \"CODING\", \"GAMING\": \"GAMING\", \"SPORTS\": \"SPORTS\", \"DANCING\": \"DANCING\", \"FRIENDS\": \"FRIENDS\", \"READING\": \"READING\", \"PHOTOGRAPHY\": \"PHOTOGRAPHY\", \"GETING STONED\": \"GETING STONED\"}, \"location\": \"Johannesburg\", \"last_login\": \"30th of January 09:40 AM\", \"preference\": \"Male\", \"notifications\": [\"Amy viewed you page\", \"Black_Cupid viewed you page\"]}', '[\"Amy\", \"Black_Cupid\"]', '{\"blockee\": [], \"blocker\": []}'),
+(18, 'Tyler', 'Tyler', 'Fisher', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'tylerfisher@mailinator.com', '2019-01-29 10:32:38', 1, '', 0, '{\"dp\": \"https://pbs.twimg.com/profile_images/905702521728937984/rzoNtLDy_400x400.jpg\", \"DOB\": \"1997-09-11\", \"fame\": 24, \"gender\": \"Male\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\", \"notifications\": [\"Amy viewed you page\", \"Black_Cupid viewed you page\"]}', '[\"Amy\", \"Black_Cupid\"]', '{\"blockee\": [], \"blocker\": [\"Black_Cupid\"]}'),
+(19, 'Jessy', 'Jessy', 'Anderson', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'jessy@mailinator.com', '2019-01-29 10:38:22', 1, '', 0, '{\"dp\": \"https://pbs.twimg.com/profile_images/543749134076088320/_5IGZSJ2.jpeg\", \"DOB\": \"1997-09-11\", \"fame\": 0, \"gender\": \"Female\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(20, 'Priellost', 'Aimee', 'Bunce', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Aimee@mailinator.com', '2019-01-29 10:42:45', 1, '', 0, '{\"dp\": \"https://pbs.twimg.com/profile_images/575446987408982019/9M56UceZ_400x400.jpeg\", \"DOB\": \"1972-11-13\", \"fame\": 0, \"gender\": \"Female\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(21, 'Hictle1969', 'Carol', 'Despres', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Carol@mailinator.com', '2019-01-29 10:45:03', 1, '', 0, '{\"dp\": \"https://tragictantrum.com/wp-content/uploads/2018/09/pretty-gallery-of-general-hospital-scoops-and-spoilers-carol-banks-weber-of-general-hospital-scoops-and-spoilers-carol-banks-weber.jpg\", \"DOB\": \"1968-01-27\", \"fame\": 2, \"gender\": \"Female\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\", \"notifications\": [\"Amy viewed you page\"]}', '[\"Amy\"]', '{\"blockee\": [], \"blocker\": []}'),
+(22, 'Doperis', 'Melanie', 'Waters', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Melanie@mailinator.com', '2019-01-29 10:47:10', 1, '', 0, '{\"dp\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy8J7Goz7J1C9NWD97M8ldp8gdkQo8krZ6Sn-7EJ0AiqovMB91\", \"DOB\": \"1972-08-03\", \"fame\": 0, \"gender\": \"Female\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(23, 'Scoged', 'Tara', 'Jordan', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Tara@mailinator.com', '2019-01-29 10:49:06', 1, '', 0, '{\"dp\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_RMkP8CDiRR_ZRlifwHKAnEzSXSs_V3_3Hd6k346529pv13xmTg\", \"DOB\": \"1949-03-06\", \"fame\": 0, \"gender\": \"Female\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(24, 'Whinarand', 'Ronnie', 'McBride', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Ronnie@mailinator.com', '2019-01-29 10:50:24', 1, '', 0, '{\"dp\": \"https://m.media-amazon.com/images/M/MV5BYmI5YWZhM2YtOTJlYy00NjBmLTliZTItYzUzNmJlODBkMzVmXkEyXkFqcGdeQXVyNTI5NjIyMw@@._V1_UY317_CR20,0,214,317_AL_.jpg\", \"DOB\": \"1988-11-27\", \"fame\": 2, \"gender\": \"Male\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\", \"notifications\": [\"Black_Cupid viewed you page\"]}', '[\"Black_Cupid\"]', '{\"blockee\": [], \"blocker\": [\"Black_Cupid\"]}'),
+(25, 'Pubjessity', 'Mary', 'Goldman', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Mary@mailinator.com', '2019-01-29 10:53:16', 1, '', 0, '{\"dp\": \"https://i.imgur.com/EcF03HZ.jpg\", \"DOB\": \"1997-08-06\", \"fame\": 0, \"gender\": \"Female\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(26, 'Refort', 'Shelby', 'Becerra', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Shelby@mailinator.com', '2019-01-29 10:54:23', 1, '', 0, '{\"dp\": \"http://www.babynameshub.com/upload/user_photos/Shelby-female-20160326-000542714.jpg\", \"DOB\": \"1997-03-11\", \"fame\": 0, \"gender\": \"Female\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(27, 'Cothy1998', 'Beatrice', 'Johnson', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Beatrice@mailinator.com', '2019-01-29 10:56:39', 1, '', 0, '{\"dp\": \"https://i0.wp.com/www.teleblog.it/wp-content/uploads/2017/03/camilla-mangiapelo.jpg?resize=620%2C400&ssl=1\", \"DOB\": \"1998-02-27\", \"fame\": 0, \"gender\": \"Female\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(28, 'Rofeend', 'Adrienne', 'Dixon', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Adrienne@mailinator.com', '2019-01-29 10:58:55', 1, '', 0, '{\"dp\": \"https://tinathemusical.com/content/uploads/2017/11/Adreinne-Warren-Approved-Image-600x600.jpeg\", \"DOB\": \"1981-06-17\", \"fame\": 0, \"gender\": \"Female\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(29, 'Wifurrive', 'Patricia', 'Smart', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Patricia@mailinator.com', '2019-01-29 11:01:00', 1, '', 0, '{\"dp\": \"https://assets2.hrc.org/files/images/blog/KarlaPatriciaFloresPavon-1600x900.jpg\", \"DOB\": \"1964-09-13\", \"fame\": 0, \"gender\": \"Female\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(30, 'Marrined1992', 'Helen', 'Harper', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Helen@mailinator.com', '2019-01-29 11:04:32', 1, '', 0, '{\"dp\": \"https://pbs.twimg.com/media/BzeF125IAAIDZG-.jpg\", \"DOB\": \"1992-09-26\", \"fame\": 2, \"gender\": \"Female\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\", \"notifications\": [\"Amy viewed you page\"]}', '[\"Amy\"]', '{\"blockee\": [], \"blocker\": []}'),
+(31, 'Junted', 'Mattie', 'Andre', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Mattie@mailinator.com', '2019-01-29 11:06:24', 1, '', 0, '{\"dp\": \"https://s3.amazonaws.com/giveffect-assets/system/photos/users/small/27245x72c2b2a8e71e1e8a4a7b21a2394a1efae22d9f40.jpg\", \"DOB\": \"1984-06-05\", \"fame\": 0, \"gender\": \"Female\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(32, 'Exproul', 'Sarah', 'Pierce', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Sarah@mailinator.com', '2019-01-29 11:07:54', 1, '', 0, '{\"dp\": \"https://yt3.ggpht.com/a-/AAuE7mCqNsRrh7FHP0sDd6vqzX6kh0bQ1hoYiyGCLw=s900-mo-c-c0xffffffff-rj-k-no\", \"DOB\": \"1989-06-10\", \"fame\": 0, \"gender\": \"Female\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(33, 'Handrey', 'Margery', 'Neil', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Margery@mailinator.com', '2019-01-29 11:09:04', 1, '', 0, '{\"dp\": \"https://pbs.twimg.com/profile_images/741922249255575552/sRldcO3g_400x400.jpg\", \"DOB\": \"1998-01-12\", \"fame\": 2, \"gender\": \"Female\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\", \"notifications\": [\"Black_Cupid viewed you page\"]}', '[\"Black_Cupid\"]', '{\"blockee\": [], \"blocker\": []}'),
+(34, 'Nelf1991', 'Jose', 'Garza', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Jose@mailinator.com', '2019-01-29 11:11:25', 1, '', 0, '{\"dp\": \"https://i.dailymail.co.uk/i/pix/2015/05/01/22/2834A4C600000578-0-image-m-64_1430515905072.jpg\", \"DOB\": \"1991-11-16\", \"fame\": 0, \"gender\": \"Male\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(35, 'Swervage', 'Charles', 'Allen', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Charles@mailinator.com', '2019-01-29 11:33:29', 1, '', 0, '{\"dp\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNb1J4iSJVzt__CyMUpmYEGP5S_vGf5OqztePLxbwrG9ZsiGE2OA\", \"DOB\": \"1991-04-26\", \"fame\": 0, \"gender\": \"Male\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(36, 'Antoomp', 'Ronald', 'Steinmetz', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Ronald@mailinator.com', '2019-01-29 13:20:52', 1, '', 0, '{\"dp\": \"https://s.hdnux.com/photos/72/20/65/15273324/3/920x920.jpg\", \"DOB\": \"1993-03-23\", \"fame\": 0, \"gender\": \"Male\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(37, 'Spokis', 'Jason', 'Larue', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Jason@mailinator.com', '2019-01-29 13:38:02', 1, '', 0, '{\"dp\": \"https://cdn.newsapi.com.au/image/v1/575f468bd1ba0718afbac35f62f21f8e?width=650\", \"DOB\": \"1997-09-24\", \"fame\": 0, \"gender\": \"Male\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(38, 'Vaggrosen92', 'Joshua', 'Heaton', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Joshua@mailinator.com', '2019-01-29 13:39:29', 1, '', 0, '{\"dp\": \"https://static1.squarespace.com/static/534346f2e4b01edccd7213e3/t/546ec5e4e4b0cb681e1d6871/1416545765510/About-Josh.jpg\", \"DOB\": \"1992-11-25\", \"fame\": 0, \"gender\": \"Male\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(39, 'Praces', 'Patrick', 'Stevens', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Patrick@mailinator.com', '2019-01-29 13:40:54', 1, '', 0, '{\"dp\": \"https://www.michael-patrick-kelly.com/img/MPK_by_Andreas_H_Bitesnich_4.jpg\", \"DOB\": \"1992-01-26\", \"fame\": 0, \"gender\": \"Male\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(40, 'Camle1983', 'Ralph', 'Forest', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Ralph@mailinator.com', '2019-01-29 13:42:55', 1, '', 0, '{\"dp\": \"http://wavenewspapers.com/wp-content/uploads/2017/02/Simply-Jessica-01.jpg\", \"DOB\": \"1983-12-23\", \"fame\": 0, \"gender\": \"Male\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(41, 'Alar1985', 'Michael', 'Stowe', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Michael@mailinator.com', '2019-01-29 13:44:05', 1, '', 0, '{\"dp\": \"https://pixel.nymag.com/imgs/daily/vulture/2014/09/05/magazine/05-michael-egan.w330.h412.jpg\", \"DOB\": \"1985-08-10\", \"fame\": 0, \"gender\": \"Male\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(42, 'Billostrand', 'Nicholas', 'Summers', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Nicholas@mailinator.com', '2019-01-29 13:47:08', 1, '', 0, '{\"dp\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnM8bT-vZLLxxG-lb9c6XcqP9LJ_2Ffqd4PKR-CP-CM3Q8hHLDbA\", \"DOB\": \"1952-08-24\", \"fame\": 0, \"gender\": \"Male\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}'),
+(43, 'Ustenexce', 'Wilford', 'Estey', '3de1244694191a92f1b0a516df476cb6df269aa1b9047643fdd671dde008a80433ab9aa5d6b7cdd940fd7535c51b8fb0c53c60c320a65a2c7fa08514008d00f9', 'Wilford@mailinator.com', '2019-01-29 13:52:06', 1, '', 0, '{\"dp\": \"https://i.pinimg.com/280x280_RS/a2/e8/8f/a2e88fce83ef753322443ecab3880c11.jpg\", \"DOB\": \"1952-06-12\", \"fame\": 0, \"gender\": \"Male\", \"location\": \"Johannesburg\", \"last_login\": \"not active\", \"preference\": \"BI-SEXUAL\"}', NULL, '{\"blockee\": [], \"blocker\": []}');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `comments`
---
-ALTER TABLE `comments`
-  ADD PRIMARY KEY (`comms_id`),
-  ADD KEY `comimg_id` (`comimg_id`);
-
---
 -- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
-  ADD PRIMARY KEY (`img_id`),
-  ADD KEY `users_id` (`users_id`);
+  ADD PRIMARY KEY (`img_id`);
 
 --
 -- Indexes for table `likes`
 --
 ALTER TABLE `likes`
-  ADD UNIQUE KEY `likesindex` (`theimg_id`,`likers_id`),
-  ADD KEY `likelink` (`likers_id`),
-  ADD KEY `likedim` (`theimg_id`);
+  ADD UNIQUE KEY `likie` (`likie`,`likers_id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `username` (`username`),
-  ADD KEY `ugroup` (`notification`);
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `comments`
---
-ALTER TABLE `comments`
-  MODIFY `comms_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
---
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `img_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `img_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `comments`
---
-ALTER TABLE `comments`
-  ADD CONSTRAINT `comimglink` FOREIGN KEY (`comimg_id`) REFERENCES `gallery` (`img_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-
---
--- Constraints for table `likes`
---
-ALTER TABLE `likes`
-  ADD CONSTRAINT `likedim` FOREIGN KEY (`theimg_id`) REFERENCES `gallery` (`img_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `likelink` FOREIGN KEY (`likers_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
